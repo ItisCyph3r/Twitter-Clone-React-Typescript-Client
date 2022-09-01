@@ -1,5 +1,6 @@
 .DS_Store
 .vscode
+# -----------------------------------------------------------------
 
 # ignore all files starting with . or ~
 .*
