@@ -14,8 +14,6 @@ import useMatchMedia from '../responsiveText/responsiveText';
 
 
 
-
-
 export default function Posts() {
 
     const [feed, setFeed] = useState<any[]>([]);
