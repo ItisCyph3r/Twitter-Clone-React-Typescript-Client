@@ -8,6 +8,9 @@ module.exports = {
       colors: {
         'twitterBlue': '#1D9BF0',
       },
+      backgroundImage: theme => ({
+        'loginpic': "url('assets/lohpen.png')",
+      })
     },
   },
   plugins: [],

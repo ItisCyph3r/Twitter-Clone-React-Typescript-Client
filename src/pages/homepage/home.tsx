@@ -1,15 +1,13 @@
 import React from 'react';
 import './home.css';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
-import Tweet from '../conponents/createTweet/createTweet';
-import Posts from '../conponents/tweets/posts';
-import Searchbar from '../conponents/searchbar/searchbar';
-import Trending from '../conponents/trending/trending';
-import ProfilePic from '../conponents/profilePic/profilePic';
-import Sidebar from '../conponents/sidebar/sidebar';
-// import Threads from '../conponents/tweets/threads';
-// import Fab from '@mui/material/Fab';
-// import AddIcon from '@mui/icons-material/Add';
+import Tweet from '../../conponents/createTweet/createTweet';
+import Posts from '../../conponents/tweets/posts';
+import Searchbar from '../../conponents/searchbar/searchbar';
+import Trending from '../../conponents/trending/trending';
+import ProfilePic from '../../conponents/profilePic/profilePic';
+import Sidebar from '../../conponents/sidebar/sidebar';
+
 
 export default function Home() {
 
@@ -42,24 +40,6 @@ export default function Home() {
                     </div>
                     
                 </div>
-                {/* <Fab  size="medium" color="secondary" aria-label="add">
-                    <AddIcon />
-                    
-                </Fab> */}
-                {/* <div className='bg-black overflow-y-scroll md:w-[30%] lg:block px-5 feed'>
-                    <div className='hidden lg:block'>
-                        <Searchbar />
-                        <Trending/>
-                    </div>
-                    
-                </div> */}
-                {/* <div className='bg-black overflow-y-scroll hidden md:w-[30%] lg:block px-5 feed'>
-                    <div className='hidden lg:block'>
-                        <Searchbar />
-                        <Trending/>
-                    </div>
-                    
-                </div> */}
             </div>
         </>
     );

@@ -27,6 +27,18 @@ export const setTweet = async(prop: string) => {
     })
 }
 
-export const deleteTweet = (props: number) => {
-    return fetch('/')
+export const deleteTweet = (props: string) => {
+    return fetch('/delete_tweet', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            tweet: props
+        })
+    })
+    .then(data => {
+        data.json()
+        console.log(data)
+    })
 }

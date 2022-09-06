@@ -76,7 +76,8 @@ export default function Tweet() {
                         </div>
                         
                         <button onClick={() => {
-                            setTweet(tweetInput);
+                            // console.log(tweetInput.length);
+                            tweetInput.length < 280 || tweetInput.length < 4 ? setTweet(tweetInput) : setTweetInput('');
                             setTweetInput('');
                         }} disabled={!tweetInput} className={`py-2 px-5 bg-twitterBlue text-2.5rem rounded-3xl ${tweetInput ? 'opacity-100' : 'opacity-50'}`} >
                             Tweet

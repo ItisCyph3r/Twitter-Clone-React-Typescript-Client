@@ -3,16 +3,26 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import { deleteTweet } from '../../express/express.config';
 
-export default function BasicMenu() {
+
+interface Props{
+    uuid: any;
+}
+export default function BasicMenu(props: any) {
+
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: any) => {
         setAnchorEl(event.currentTarget);
     };
+
     const handleClose = () => {
+
+        deleteTweet(props.uuid);
+
         setAnchorEl(null);
-};
+    };
 
     return (
         <div>
@@ -42,9 +52,9 @@ export default function BasicMenu() {
             'aria-labelledby': 'basic-button',
             }}
         >
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
+            <MenuItem onClick={handleClose}>Delete tweet</MenuItem>
+            {/* <MenuItem onClick={handleClose}>My account</MenuItem>
+            <MenuItem onClick={handleClose}>Logout</MenuItem> */}
         </Menu>
         </div>
     );

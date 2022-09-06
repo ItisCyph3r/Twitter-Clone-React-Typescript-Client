@@ -11,8 +11,6 @@ import Box from '@mui/material/Box';
 import BasicMenu from '../dropdown-menu/dropdown-menu';
 import useMatchMedia from '../responsiveText/responsiveText';
 
-    
-
 
 
 
@@ -37,12 +35,12 @@ export default function Posts() {
 
     return (
         <>
-            
+            {/* {feed.map((ffs) => {console.log(ffs._id)})} */}
             {
                 feed.length !== 0 ? 
                 feed.map((element) => (
                     <>
-                        <div className='px-3 pt-5 flex gap-2'>
+                        <div className='px-3 pt-5 flex gap-2' id={element.id}>
                             <div className=''>
 
                                 <ProfilePic width={50} height= {50}/>
@@ -80,7 +78,7 @@ export default function Posts() {
                                         {/* </Fab> */}
 
 
-                                        <BasicMenu />
+                                        <BasicMenu uuid ={element._id}/>
                                     </div>
                                 </div>
                                 <div className='relative bottom-[0.1rem] text-[0.9rem]'>
