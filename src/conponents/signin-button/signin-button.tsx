@@ -12,7 +12,7 @@ interface Props{
 export default function SigninButton(props: Props) {
     return (
         <>
-        {/* {`text-${props.className}`} */}
+        {/* {`bg-${props.bgColor}`} */}
             <button className={`w-full p-2 rounded-3xl font-bold text-center flex justify-center text-sm bg-${props.bgColor} text-${props.color} ${props.className}` }>
                 <span className='flex items-center gap-2'> 
                     {/* <FaApple/>  */}
