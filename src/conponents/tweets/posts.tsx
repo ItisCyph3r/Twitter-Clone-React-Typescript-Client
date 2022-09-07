@@ -1,23 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ProfilePic from '../profilePic/profilePic';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import {FaRetweet, FaComment, FaRegHeart} from 'react-icons/fa';
 import {FiShare} from 'react-icons/fi';
 import {BiComment} from 'react-icons/bi';
-import Fab from '@mui/material/Fab';
-import axios from 'axios';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import BasicMenu from '../dropdown-menu/dropdown-menu';
-import useMatchMedia from '../responsiveText/responsiveText';
-
-
-
+import { parseCurrentDate } from '../getCurrentDate';
 
 export default function Posts() {
 
     const [feed, setFeed] = useState<any[]>([]);
-    const [isShown, setIsShown] = useState<boolean>(false);
 
     const fetchPost = async () => {
         return fetch('/api')
@@ -38,6 +32,7 @@ export default function Posts() {
                 feed.length !== 0 ? 
                 feed.map((element) => (
                     <>
+                        {/* {console.log(element)} */}
                         <div className='px-3 pt-5 flex gap-2' id={element.id}>
                             <div className=''>
 
@@ -62,9 +57,9 @@ export default function Posts() {
                                                 @hackSfdnlnfsdnlfsdlfnlsdnflnnlsdadlsnndlan
                                             </div>
                                             <div className='ml-0 flex items-center'>
-                                                . 13h
+                                                . {parseCurrentDate(element.date)}
                                             </div>
-                                            {/* {element.date} */}
+                                            
                                         </div> 
                                         {/* <div className='opacity-50 md:text-sm text-xs ml-1'>
                                             

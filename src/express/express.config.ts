@@ -1,15 +1,7 @@
-import { GetCurrentDate, UUID } from "../conponents/getCurrentDate";
-
-// export const getList = async() => {
-//     return fetch('/api')
-//     .then(data => data.json())
-//     .then(user => console.log(user))
-// }
-
+import { UUID } from "../conponents/getCurrentDate";
 
 export const setTweet = async(prop: string) => {
-    const rawDate = new Date().toLocaleString();
-
+        
     return fetch('/api', {
         method: 'POST',
         headers: {
@@ -18,8 +10,8 @@ export const setTweet = async(prop: string) => {
         body: JSON.stringify({
             tweet: prop, 
             uuid: UUID(),
-            date: rawDate,
-            formattedDate: GetCurrentDate()})
+            date: new Date()
+        })
     })
     .then(data => {
         data.json()
@@ -42,3 +34,6 @@ export const deleteTweet = (props: string) => {
         console.log(data)
     })
 }
+
+
+

@@ -1,21 +1,37 @@
+export const parseCurrentDate = (tdate: any) => {
+    var system_date: any = new Date(Date.parse(tdate));
+    var user_date: any = new Date();
+    // if (K.ie) {
+    //     system_date = Date.parse(tdate.replace(/( \+)/, ' UTC$1'))
+    // }
+    var diff = Math.floor((user_date - system_date) / 1000);
+    // if (diff <= 1) {return "just now";}
+    if (diff <= 60) {return diff + "s";}
+    // if (diff < 40) {return "half a minute ago";}
+    // if (diff < 60) {return "less than a minute ago";}
+    if (diff <= 90) {return "1m";}
 
-export const GetCurrentDate = () => {
-    var today = new Date(),
-    dd = String(today.getDate()).padStart(2, '0'),
-    mm = String(today.getMonth() + 1).padStart(2, '0'),
-    yyyy = today.getFullYear(),
+    // if (diff <= 3540) {return Math.round(diff / 60) + " minutes ago";}
+    if (diff <= 3540) {return Math.round(diff / 60) + "m";}
 
-    date = mm + '/' + dd + '/' + yyyy;
+    // if (diff <= 5400) {return "1 hour ago";}
+    if (diff <= 5400) {return "1h";}
 
-	var curHour = today.getHours() > 12 ? today.getHours() - 12 : (today.getHours() < 10 ? "0" + today.getHours() : today.getHours()),
-	curMinute = today.getMinutes() < 10 ? "0" + today.getMinutes() : today.getMinutes(),
-	curSeconds = today.getSeconds() < 10 ? "0" + today.getSeconds() : today.getSeconds(),
-	curMeridiem = today.getHours() > 12 ? "PM" : "AM",
-    time = curHour + ":" + curMinute + "." + curSeconds + curMeridiem 
+    // if (diff <= 86400) {return Math.round(diff / 3600) + " hours ago";}
+    if (diff <= 86400) {return Math.round(diff / 3600) + "h";}
+
+    // if (diff <= 129600) {return "1 day ago";}
+    if (diff <= 129600) {return "1d";}
+
+    // if (diff < 604800) {return Math.round(diff / 86400) + " days ago";}
+    if (diff < 604800) {return Math.round(diff / 86400) + "d";}
+
+    // if (diff <= 777600) {return "1 week ago";}
+    if (diff <= 777600) {return "1w";}
+
+    console.log(system_date)
     
-    return (
-        time + ' ' + date
-    )
+    return "on " + system_date;
 }
 
 export const UUID = () => {
