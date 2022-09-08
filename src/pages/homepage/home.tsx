@@ -1,15 +1,14 @@
 import React from 'react';
 import './home.css';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
-import Tweet from '../../conponents/createTweet/createTweet';
-import Posts from '../../conponents/tweets/posts';
-import Searchbar from '../../conponents/searchbar/searchbar';
-import Trending from '../../conponents/trending/trending';
-import ProfilePic from '../../conponents/profilePic/profilePic';
-import Sidebar from '../../conponents/sidebar/sidebar';
+import { Tweet } from '../../conponents/createTweet/createTweet';
+import { Posts } from '../../conponents/tweets/posts';
+import { Searchbar } from '../../conponents/searchbar/searchbar';
+import { Trending } from '../../conponents/trending/trending';
+import { ProfilePic } from '../../conponents/profilePic/profilePic';
+import { Sidebar } from '../../conponents/sidebar/sidebar';
 
-
-export default function Home() {
+export const Home: React.FC<{}> = () => {
 
     return (
         <>

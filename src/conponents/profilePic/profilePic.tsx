@@ -7,7 +7,7 @@ interface Props{
     height: number
 }
 
-const ProfilePic = (props: Props) => {
+export const ProfilePic = (props: Props) => {
 
     return (
         <Avatar 
@@ -17,5 +17,3 @@ const ProfilePic = (props: Props) => {
         />
     )
 }
-
-export default ProfilePic;

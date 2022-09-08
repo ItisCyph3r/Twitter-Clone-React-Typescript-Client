@@ -1,7 +1,7 @@
 import React from 'react';
 import TrendingCard from './trendingCard';
 
-export default function Trending() {
+export const Trending: React.FC<{}> = () => {
     return (
         <>
             <div className='bg-[#202327] rounded-3xl py-5 my-10'>

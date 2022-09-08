@@ -9,10 +9,10 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import ProfilePic from '../profilePic/profilePic';
+import { ProfilePic } from '../profilePic/profilePic';
 // import VerifiedIcon from '@mui/icons-material/Verified';
 
-export default function Sidebar() {
+export const Sidebar: React.FC<{}> = () => {
     return (
         <>
             <div className="sidebar text-white pr-8">

@@ -1,9 +1,10 @@
 import React from 'react';
-import ProfilePic from '../profilePic/profilePic';
+import { ProfilePic } from '../profilePic/profilePic';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import {FaRetweet, FaComment, FaRegHeart} from 'react-icons/fa';
 import {FiShare} from 'react-icons/fi';
-export default function Posts() {
+
+export const Threads: React.FC<{}> = () => {
     return (
         <>
             <div className='px-3 pt-5 flex gap-2'>

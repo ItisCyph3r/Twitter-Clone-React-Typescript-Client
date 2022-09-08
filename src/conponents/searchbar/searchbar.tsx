@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 
-export default function Searchbar() {
+export const Searchbar: React.FC<{}> = () => {
 
     const [isClicked, setIsClicked] = useState<boolean>(false);
 

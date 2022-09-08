@@ -7,9 +7,10 @@ import { deleteTweet } from '../../express/express.config';
 
 
 interface Props{
-    uuid: any;
+    uuid?: any
 }
 export default function BasicMenu(props: any) {
+    // export const BasicMenu: React.FC<{}> = (props: Props) => {
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -25,37 +26,37 @@ export default function BasicMenu(props: any) {
     };
 
     return (
-        <div>
-        <MoreHorizIcon 
-            id="basic-button"
-            aria-controls={open ? 'basic-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
-            onClick={handleClick}
-        />
-        {/* <Button
-            id="basic-button"
-            aria-controls={open ? 'basic-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
-            onClick={handleClick}
-        >
-            Dashboard
-        </Button> */}
-        <Menu
-            color="primary"
-            id="basic-menu"
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-            MenuListProps={{
-            'aria-labelledby': 'basic-button',
-            }}
-        >
-            <MenuItem onClick={handleClose}>Delete tweet</MenuItem>
-            {/* <MenuItem onClick={handleClose}>My account</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem> */}
-        </Menu>
-        </div>
+        <>
+            <MoreHorizIcon 
+                id="basic-button"
+                aria-controls={open ? 'basic-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
+            />
+            {/* <Button
+                id="basic-button"
+                aria-controls={open ? 'basic-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
+            >
+                Dashboard
+            </Button> */}
+            <Menu
+                color="primary"
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                'aria-labelledby': 'basic-button',
+                }}
+            >
+                <MenuItem onClick={handleClose}>Delete tweet</MenuItem>
+                {/* <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem> */}
+            </Menu>
+        </>
     );
 }

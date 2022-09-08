@@ -6,12 +6,12 @@ import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { useState } from 'react';
-import ProfilePic from '../profilePic/profilePic';
+import { ProfilePic } from '../profilePic/profilePic';
 import './createTweet.css';
 import { setTweet } from '../../express/express.config';
 
 
-export default function Tweet() {
+export const Tweet: React.FC<{}> = () => {
     
     const [displayOptions, setDisplayOptions] = useState<boolean>(false);
 

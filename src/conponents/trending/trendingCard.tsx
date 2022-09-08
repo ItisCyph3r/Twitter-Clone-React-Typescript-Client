@@ -1,5 +1,5 @@
 import React from 'react';
-import BasicMenu from '../dropdown-menu/dropdown-menu';
+import BasicMenu  from '../dropdown-menu/dropdown-menu';
 
 export default function TrendingCard() {
     return (

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import ProfilePic from '../profilePic/profilePic';
+import { ProfilePic } from '../profilePic/profilePic';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import {FaRetweet, FaComment, FaRegHeart} from 'react-icons/fa';
 import {FiShare} from 'react-icons/fi';
@@ -9,7 +9,7 @@ import Box from '@mui/material/Box';
 import BasicMenu from '../dropdown-menu/dropdown-menu';
 import { parseCurrentDate } from '../getCurrentDate';
 
-export default function Posts() {
+export const Posts: React.FC<{}> = () => {
 
     const [feed, setFeed] = useState<any[]>([]);
 
