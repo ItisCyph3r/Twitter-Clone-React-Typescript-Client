@@ -45,7 +45,7 @@ export const Posts: React.FC<{}> = () => {
                             <div className='ml-2 w-full'>
                                 <div className='flex justify-between'>
                                     <div className='cursor-pointer flex items-center '>
-                                        <div className='gap-8 text-sm font-bold md:max-w-[350px] max-w-[140px] whitespace-nowrap overflow-hidden text-ellipsis'>
+                                        <div className='gap-8 text-sm font-bold md:max-w-[350px] max-w-[100px] whitespace-nowrap overflow-hidden text-ellipsis'>
                                             Name cannot be blsdaoslmdasmdamdsdf dadjsajdsajdasddnlfssdlnfsnldnlfndslfnlsn
                                             {/* <VerifiedIcon 
                                                 fontSize="small" 
@@ -53,24 +53,16 @@ export const Posts: React.FC<{}> = () => {
                                             /> */}
                                         </div>
                                         <div className='opacity-50 md:text-sm text-xs flex items-center'> 
-                                            <div className='md:max-w-[120px] max-w-[70px] whitespace-nowrap overflow-hidden text-ellipsis'>
+                                            <div className='md:max-w-[120px] max-w-[70px] whitespace-nowrap overflow-hidden text-ellipsis ml-1'>
                                                 @hackSfdnlnfsdnlfsdlfnlsdnflnnlsdadlsnndlan
                                             </div>
-                                            <div className='ml-0 flex items-center'>
+                                            <div className='ml-0 flex items-center !max-w-[100px]'>
                                                 . {parseCurrentDate(element.date)}
                                             </div>
                                             
                                         </div> 
-                                        {/* <div className='opacity-50 md:text-sm text-xs ml-1'>
-                                            
-                                        </div> */}
                                     </div>
                                     <div>
-                                        {/* <Fab size="small" color="primary" aria-label="add"> */}
-                                            {/* <MoreHorizIcon /> */}
-                                        {/* </Fab> */}
-
-
                                         <BasicMenu uuid ={element._id}/>
                                     </div>
                                 </div>
