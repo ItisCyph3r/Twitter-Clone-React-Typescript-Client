@@ -10,7 +10,7 @@ import { IUser } from './types/maintypes';
 export const App: React.FC<{}> = () => {
 
     const userObject = useContext(myContext) as IUser;
-    // console.log(userObject);
+    console.log(userObject);
 
     return (
         <>   

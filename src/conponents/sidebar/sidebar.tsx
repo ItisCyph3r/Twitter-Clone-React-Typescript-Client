@@ -33,14 +33,12 @@ export const Sidebar: React.FC<{}> = () => {
                 <SidebarLink text='Bookmarks' icon={<BookmarkBorderIcon/>} />
                 <SidebarLink text='Lists' icon={<ListAltIcon/>} />
                 <SidebarLink text='Profile' icon={<PermIdentityIcon/>} />
-                <SidebarLink text='More' icon={<MoreHorizIcon/>} />
+                {/* <SidebarLink text='More' icon={<MoreHorizIcon/>} /> */}
 
                 {
                     userObject ? 
                     (
-                        <Link to='/'>
-                            <SidebarLink text='Logout' icon={<MoreHorizIcon/>} onClick={Logout}/>
-                        </Link>  
+                        <SidebarLink className='cursor-pointer' text='Logout' icon={<MoreHorizIcon/>} onClick={Logout}/>
                     )
                     :
                     (
@@ -57,18 +55,37 @@ export const Sidebar: React.FC<{}> = () => {
 
             <div className="mt-20 mr-10 p-3 w-[95%] flex items-center gap-2 hover:bg-[#181818] rounded-3xl">
                 {/* <ProfilePic width={38} height= {38}/> */}
-                <ProfilePic width={33} height= {33}/>
+                <ProfilePic width={38} height= {38}/>
 
                 <div>
                     <div className='text-[0.85rem] leading-5 font-bold'>
-                        The Kingslayer
+                        {
+                            userObject ? 
+                            <div>
+                                {`${userObject.displayName}`}
+                            </div> 
+                                : 
+                            <div>
+                                fml
+                            </div> 
+                        }
+                        
                         {/* <VerifiedIcon 
                             fontSize="small" 
                             sx={{ color: 'red-[#1D9BF0]' }}
                         /> */}
                     </div>
                     <div className='opacity-50 text-[0.85rem]'> 
-                        @serjaimelannister
+                        {
+                            userObject ? 
+                            <div>
+                                @{`${userObject.username}`}
+                            </div> 
+                                : 
+                            <div>
+                                fml
+                            </div> 
+                        }
                     </div>
                 </div>
             </div>
