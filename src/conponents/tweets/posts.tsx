@@ -31,7 +31,7 @@ export const Posts: React.FC<{}> = () => {
             {
                 feed.length !== 0 ? 
                 feed.map((element) => (
-                    <>
+                    <div key={element.id}>
                         {/* {console.log(element)} */}
                         <div className='px-3 pt-5 flex gap-2' id={element.id}>
                             <div className=''>
@@ -45,7 +45,7 @@ export const Posts: React.FC<{}> = () => {
                             <div className='ml-2 w-full'>
                                 <div className='flex justify-between'>
                                     <div className='cursor-pointer flex items-center '>
-                                        <div className='gap-8 text-sm font-bold md:max-w-[350px] max-w-[100px] whitespace-nowrap overflow-hidden text-ellipsis'>
+                                        <div className='gap-8 text-sm font-bold md:max-w-[300px] max-w-[100px] whitespace-nowrap overflow-hidden text-ellipsis'>
                                             Name cannot be blsdaoslmdasmdamdsdf dadjsajdsajdasddnlfssdlnfsnldnlfndslfnlsn
                                             {/* <VerifiedIcon 
                                                 fontSize="small" 
@@ -56,7 +56,7 @@ export const Posts: React.FC<{}> = () => {
                                             <div className='md:max-w-[120px] max-w-[70px] whitespace-nowrap overflow-hidden text-ellipsis ml-1'>
                                                 @hackSfdnlnfsdnlfsdlfnlsdnflnnlsdadlsnndlan
                                             </div>
-                                            <div className='ml-0 flex items-center !max-w-[100px]'>
+                                            <div className='ml-0 flex items-center max-w-[100px]'>
                                                 . {parseCurrentDate(element.date)}
                                             </div>
                                             
@@ -79,7 +79,7 @@ export const Posts: React.FC<{}> = () => {
                             </div>
                         </div>
                         <hr className='w-full border-gray-700' /> 
-                    </>
+                    </div>
                 )).reverse() : 
                 <div className='relative top-[50px] left-1/2'>
                     <Box sx={{ display: 'flex' }}>

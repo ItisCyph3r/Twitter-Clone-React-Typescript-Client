@@ -7,6 +7,15 @@ import {FaApple} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 export const Login: React.FC<{}> = () => {
+
+    const googleLogin = () => {
+        window.open('http://localhost:4000/auth/google', '_self', 'width=500, height=600')
+    }
+
+    const githubLogin = () => {
+        window.open('http://localhost:4000/auth/github', '_self', 'width=500, height=600')
+    }
+
     return (
         <>
             <div className='flex flex-col lg:flex-row text-white bg-black '>
@@ -32,6 +41,7 @@ export const Login: React.FC<{}> = () => {
                             text='Sign up with Google'
                             color='black'
                             bgColor='white'
+                            onClick={googleLogin}
                             // icon={FaApple}
                         />
 
@@ -41,6 +51,7 @@ export const Login: React.FC<{}> = () => {
                             color='black'
                             bgColor='white'
                             icon={FaApple}
+                            onClick={githubLogin}
                         />
 
                         <hr className='w-full border-gray-700 mt-5' /> 

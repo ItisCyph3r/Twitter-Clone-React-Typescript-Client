@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './home.css';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import { Tweet } from '../../conponents/createTweet/createTweet';
@@ -7,11 +7,24 @@ import { Searchbar } from '../../conponents/searchbar/searchbar';
 import { Trending } from '../../conponents/trending/trending';
 import { ProfilePic } from '../../conponents/profilePic/profilePic';
 import { Sidebar } from '../../conponents/sidebar/sidebar';
+import { myContext } from '../../conponents/context';
+import { IUser } from '../../types/maintypes';
 
 export const Home: React.FC<{}> = () => {
-
+    const userObject = useContext(myContext) as IUser;
+    
+    // console.log(userObject);
     return (
         <>
+            <div className='bg-red-700 text-blue-700'>
+                {
+                userObject ? 
+                <div className=''> Welcome {userObject.username} </div> 
+                    : 
+                <div className=''> Welcome Bitch </div>
+                }
+            </div>
+
             <div className=' w-full flex overflow-hidden bg-black m-auto h-screen lg:w-[93%]'>
                 <div className='bg-black hidden lg:w-[20%] w-[100px] sm:block'>
                     <Sidebar/>    

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import SidebarLink from './sidebarlink';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import HomeIcon from '@mui/icons-material/Home';    
@@ -10,9 +11,14 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { ProfilePic } from '../profilePic/profilePic';
-// import VerifiedIcon from '@mui/icons-material/Verified';
+import { Logout } from '../logout/logout';
+import { IUser } from '../../types/maintypes';
+import { myContext } from '../context';
 
 export const Sidebar: React.FC<{}> = () => {
+
+    const userObject = useContext(myContext) as IUser
+
     return (
         <>
             <div className="sidebar text-white pr-8">
@@ -29,6 +35,21 @@ export const Sidebar: React.FC<{}> = () => {
                 <SidebarLink text='Profile' icon={<PermIdentityIcon/>} />
                 <SidebarLink text='More' icon={<MoreHorizIcon/>} />
 
+                {
+                    userObject ? 
+                    (
+                        <Link to='/'>
+                            <SidebarLink text='Logout' icon={<MoreHorizIcon/>} onClick={Logout}/>
+                        </Link>  
+                    )
+                    :
+                    (
+                        <Link to='/'>
+                            <SidebarLink text='Login' icon={<MoreHorizIcon/>}/>
+                        </Link>  
+                    )
+                }
+                
                 <button className="py-3 mt-3 w-full px-5 bg-twitterBlue text-lg rounded-3xl" >
                     Tweet
                 </button>
