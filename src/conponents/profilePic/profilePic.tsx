@@ -16,12 +16,9 @@ export const ProfilePic = (props: Props) => {
 
     return (
         <>
-        {/* {userObject.displayPicture} */}
-
-        <Avatar 
+            <Avatar 
             alt="Remy Sharp" 
-            src={profilePic} 
-            // src={userObject.displayPicture} 
+            src= {userObject ? userObject.displayPicture : profilePic}
             sx={{ width: props.width, height: props.height }}
         />
         </>

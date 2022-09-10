@@ -37,8 +37,10 @@ export const Sidebar: React.FC<{}> = () => {
 
                 {
                     userObject ? 
-                    (
-                        <SidebarLink className='cursor-pointer' text='Logout' icon={<MoreHorizIcon/>} onClick={Logout}/>
+                    (   
+                        <Link to='/'>
+                            <SidebarLink className='cursor-pointer' text='Logout' icon={<MoreHorizIcon/>} onClick={Logout}/>
+                        </Link>
                     )
                     :
                     (
@@ -83,7 +85,7 @@ export const Sidebar: React.FC<{}> = () => {
                             </div> 
                                 : 
                             <div>
-                                fml
+                                @fml
                             </div> 
                         }
                     </div>

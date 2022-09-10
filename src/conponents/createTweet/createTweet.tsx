@@ -8,10 +8,14 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { useState } from 'react';
 import { ProfilePic } from '../profilePic/profilePic';
 import './createTweet.css';
-import { setTweet } from '../../express/express.config';
+import { SetTweet } from '../../express/express.config';
 
 
-export const Tweet: React.FC<{}> = () => {
+import React from 'react'
+
+export function Tweet() {
+
+// export const Tweet: React.FC<{}> = () => {
     
     const [displayOptions, setDisplayOptions] = useState<boolean>(false);
 
@@ -76,8 +80,7 @@ export const Tweet: React.FC<{}> = () => {
                         </div>
                         
                         <button onClick={() => {
-                            // console.log(tweetInput.length);
-                            tweetInput.length < 280 || tweetInput.length < 4 ? setTweet(tweetInput) : setTweetInput('');
+                            tweetInput.length < 280 || tweetInput.length < 4 ? SetTweet(tweetInput) : setTweetInput('');
                             setTweetInput('');
                         }} disabled={!tweetInput} className={`py-2 px-5 bg-twitterBlue text-2.5rem rounded-3xl ${tweetInput ? 'opacity-100' : 'opacity-50'}`} >
                             Tweet

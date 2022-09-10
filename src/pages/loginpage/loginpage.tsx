@@ -3,7 +3,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import SigninButton from '../../conponents/signin-button/signin-button';
-import {FaApple} from 'react-icons/fa';
+import {FaApple, FaGithub, FaGoogle} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 export const Login: React.FC<{}> = () => {
@@ -36,23 +36,32 @@ export const Login: React.FC<{}> = () => {
                             <CircularProgress size='25px' thickness={6}/>
                         </Box> */}
                         
-                        <SigninButton
-                            className='mt-1'
-                            text='Sign up with Google'
-                            color='black'
-                            bgColor='white'
+                    
+                        <button 
+                            className={`w-full p-2 rounded-3xl font-bold text-center flex justify-center text-sm bg-white text-black mt-1` }
                             onClick={googleLogin}
-                            // icon={FaApple}
-                        />
+                        >
+                            <span className='flex items-center gap-2'> 
+                                <>
+                                <FaGoogle color='red'/> 
+                                Sign up with Google
+                                </>
+                            </span>
+                        </button>
 
-                        <SigninButton
-                            className='mt-5'
-                            text='Sign up with phone or email'
-                            color='black'
-                            bgColor='white'
-                            icon={FaApple}
+                        <button 
+                            className={`w-full p-2 rounded-3xl font-bold text-center flex justify-center text-sm bg-white text-black mt-5` }
                             onClick={githubLogin}
-                        />
+                        >
+                            <span className='flex items-center gap-2'> 
+                                <>
+                                <FaGithub />
+                                Sign up with Github
+                                </>
+                            </span>
+                        </button>
+
+                        
 
                         <hr className='w-full border-gray-700 mt-5' /> 
 
@@ -89,8 +98,30 @@ export const Login: React.FC<{}> = () => {
                 </div>
             </div>
             <div>
-                hehe
+                {/* hehe */}
             </div>
         </>
     )
 }
+
+
+
+
+{/* <SigninButton
+                            className='mt-1'
+                            text='Sign up with Google'
+                            color='black'
+                            bgColor='white'
+                            onClick={googleLogin}
+                            // icon={FaApple}
+                        /> */}
+
+
+                    //     <SigninButton
+                    //     className='mt-5'
+                    //     text='Sign up with phone or email'
+                    //     color='black'
+                    //     bgColor='white'
+                    //     icon={FaApple}
+                    //     onClick={githubLogin}
+                    // />
