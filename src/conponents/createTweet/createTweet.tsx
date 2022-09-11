@@ -5,13 +5,16 @@ import PollIcon from '@mui/icons-material/Poll';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { ProfilePic } from '../profilePic/profilePic';
+import { UUID } from '../getCurrentDate';
 import './createTweet.css';
 import { SetTweet } from '../../express/express.config';
+import { myContext } from '../context';
+import { IUser } from '../../types/maintypes';
 
 
-import React from 'react'
+
 
 export function Tweet() {
 
@@ -27,6 +30,32 @@ export function Tweet() {
 
     const enableBTN = (e: any) => {
         setTweetInput(e.target.value);
+    }
+
+    const handleClick = () => {
+        tweetInput.length < 280 || tweetInput.length < 4 ? SetTweet() : setTweetInput('');
+        setTweetInput('');
+    }
+
+    const userObject = useContext(myContext) as IUser;
+
+    const SetTweet = async () => {
+        
+    
+        const data = await fetch('/api', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                author: userObject.username,
+                tweet: tweetInput,
+                uuid: UUID(),
+                date: new Date()
+            })
+        });
+        data.json();
+        console.log(data);
     }
 
     return (
@@ -79,10 +108,7 @@ export function Tweet() {
                             <LocationOnIcon className='mr-2 cursor-pointer' color="primary"/>
                         </div>
                         
-                        <button onClick={() => {
-                            tweetInput.length < 280 || tweetInput.length < 4 ? SetTweet(tweetInput) : setTweetInput('');
-                            setTweetInput('');
-                        }} disabled={!tweetInput} className={`py-2 px-5 bg-twitterBlue text-2.5rem rounded-3xl ${tweetInput ? 'opacity-100' : 'opacity-50'}`} >
+                        <button onClick={handleClick} disabled={!tweetInput} className={`py-2 px-5 bg-twitterBlue text-2.5rem rounded-3xl ${tweetInput ? 'opacity-100' : 'opacity-50'}`} >
                             Tweet
                         </button>
                         

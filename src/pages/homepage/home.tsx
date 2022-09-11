@@ -11,7 +11,7 @@ import { myContext } from '../../conponents/context';
 import { IUser } from '../../types/maintypes';
 
 export const Home: React.FC<{}> = () => {
-    const userObject = useContext(myContext) as IUser;
+    // const userObject = useContext(myContext) as IUser;
     
     // console.log(userObject);
     return (

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import "./App.css";
+// import { myContext } from './conponents/context';
 import { myContext } from './conponents/context';
 import BasicModal from './conponents/modal/loginModal';
 import { Home } from './pages/homepage/home';

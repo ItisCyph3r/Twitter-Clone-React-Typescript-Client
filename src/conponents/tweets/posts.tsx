@@ -32,6 +32,7 @@ export default function Posts() {
 
     return (
         <>
+            {/* {console.log(feed)} */}
             {
                 feed.length !== 0 ? 
                 feed.map((element) => (

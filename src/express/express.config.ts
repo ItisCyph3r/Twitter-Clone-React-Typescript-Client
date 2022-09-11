@@ -3,9 +3,9 @@ import { myContext } from "../conponents/context";
 import { UUID } from "../conponents/getCurrentDate";
 import { IUser } from "../types/maintypes";
 
+import React from 'react';
 
-// export function SetTweet(prop: string) {
-export const SetTweet = async (prop: string) => {
+export async function SetTweet(prop: string) {
     const userObject = useContext(myContext) as IUser;
 
     const data = await fetch('/api', {
@@ -22,7 +22,37 @@ export const SetTweet = async (prop: string) => {
     });
     data.json();
     console.log(data);
+//   return (
+//     <>
+    
+//     </>
+//   );
 }
+
+
+// export const SetTweet = async (prop: string) => {
+    
+// }
+
+
+
+export const deleteTweet = async(props: string) => {
+    return fetch('/delete_tweet', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            tweet: props
+        })
+    })
+    .then(data => {
+        data.json()
+        console.log(data)
+    })
+}
+
+
 
 
 // export const SetTweet = async(prop: string) => {
@@ -46,22 +76,3 @@ export const SetTweet = async (prop: string) => {
 //         console.log(data)
 //     })
 // }
-
-export const deleteTweet = (props: string) => {
-    return fetch('/delete_tweet', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            tweet: props
-        })
-    })
-    .then(data => {
-        data.json()
-        console.log(data)
-    })
-}
-
-
-
