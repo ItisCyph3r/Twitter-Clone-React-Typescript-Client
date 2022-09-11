@@ -57,7 +57,12 @@ export const Sidebar: React.FC<{}> = () => {
 
             <div className="mt-20 mr-10 p-3 w-[95%] flex items-center gap-2 hover:bg-[#181818] rounded-3xl">
                 {/* <ProfilePic width={38} height= {38}/> */}
-                <ProfilePic width={38} height= {38}/>
+
+                <ProfilePic 
+                width={38} 
+                height= {38} 
+                // src={userObject.displayPicture}
+                />
 
                 <div>
                     <div className='text-[0.85rem] leading-5 font-bold'>

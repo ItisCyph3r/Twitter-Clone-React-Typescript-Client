@@ -19,7 +19,7 @@ export const Login: React.FC<{}> = () => {
     return (
         <>
             <div className='flex flex-col lg:flex-row text-white bg-black '>
-                <div className="lg:w-[53.5%] h-[250px] lg:h-screen bg-loginpic order-2 lg:order-1">
+                <div className="lg:w-[53.5%] h-[250px] lg:h-screen bg-loginpic bg-cover order-2 lg:order-1">
                     
                 </div>
                 <div className='pt-9 order-1 lg:order-2 mx-5 lg:mx-10'>

@@ -8,6 +8,7 @@ import { myContext } from '../context';
 interface Props{
     width: number
     height: number
+    src?: any
 }
 
 export const ProfilePic = (props: Props) => {
@@ -18,7 +19,8 @@ export const ProfilePic = (props: Props) => {
         <>
             <Avatar 
             alt="Remy Sharp" 
-            src= {userObject ? userObject.displayPicture : profilePic}
+            src={props.src}
+            // src= {userObject ? userObject.displayPicture : profilePic}
             sx={{ width: props.width, height: props.height }}
         />
         </>

@@ -48,7 +48,7 @@ export function Tweet() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                username: userObject.username,
+                id: userObject._id,
                 tweet: tweetInput,
                 uuid: UUID(),
                 date: new Date()
@@ -65,7 +65,11 @@ export function Tweet() {
             
 
             <div className='flex mt-4 gap-2'>
-                <ProfilePic width={56} height= {56}/>
+                <ProfilePic 
+                width={56} 
+                height= {56} 
+                // src={userObject.displayPicture}
+                />
                 
                 <div className='w-full'>
                     <textarea 
