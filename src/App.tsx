@@ -18,7 +18,7 @@ export const App: React.FC<{}> = () => {
             <div className='App'>
                 <Routes>
                     <Route path="/" element={ <Login/> } />
-                    <Route path="/home" element={ <Home/> } />
+                    { <Route path="/home" element={ <Home/> } /> }
                 </Routes>
             </div>
         </>

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SidebarLink from './sidebarlink';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import HomeIcon from '@mui/icons-material/Home';    
@@ -11,14 +11,31 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { ProfilePic } from '../profilePic/profilePic';
-import { Logout } from '../logout/logout';
+// import { Logout } from '../logout/logout';
 import { IUser } from '../../types/maintypes';
 import { myContext } from '../context';
+import axios, { AxiosResponse } from 'axios';
 
 export const Sidebar: React.FC<{}> = () => {
 
     const userObject = useContext(myContext) as IUser
+    
+    const navigate = useNavigate();
 
+    const Logout = () => {
+        axios.get('http://localhost:4000/auth/logout', {withCredentials: true})
+            .then((res: AxiosResponse) => {
+                console.log(res.data)
+                if(res.data === "Logout Successful"){
+                    console.log('Logged out :)')
+                    navigate('/');
+                }
+            }
+        )
+
+    }   
+
+    
     return (
         <>
             <div className="sidebar text-white pr-8">
@@ -33,21 +50,24 @@ export const Sidebar: React.FC<{}> = () => {
                 <SidebarLink text='Bookmarks' icon={<BookmarkBorderIcon/>} />
                 <SidebarLink text='Lists' icon={<ListAltIcon/>} />
                 <SidebarLink text='Profile' icon={<PermIdentityIcon/>} />
+                <SidebarLink className='cursor-pointer' text='Logout' icon={<MoreHorizIcon/>} onClick={Logout}/>
                 {/* <SidebarLink text='More' icon={<MoreHorizIcon/>} /> */}
 
                 {
-                    userObject ? 
-                    (   
-                        <Link to='/'>
-                            <SidebarLink className='cursor-pointer' text='Logout' icon={<MoreHorizIcon/>} onClick={Logout}/>
-                        </Link>
-                    )
-                    :
-                    (
-                        <Link to='/'>
-                            <SidebarLink text='Login' icon={<MoreHorizIcon/>}/>
-                        </Link>  
-                    )
+
+                
+                    // userObject ? 
+                    // (   
+                    //     <Link to='/'>
+                    //         <SidebarLink className='cursor-pointer' text='Logout' icon={<MoreHorizIcon/>} onClick={Logout}/>
+                    //     </Link>
+                    // )
+                    // :
+                    // (
+                    //     <Link to='/'>
+                    //         <SidebarLink text='Login' icon={<MoreHorizIcon/>}/>
+                    //     </Link>  
+                    // )
                 }
                 
                 <button className="py-3 mt-3 w-full px-5 bg-twitterBlue text-lg rounded-3xl" >

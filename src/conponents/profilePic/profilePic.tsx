@@ -23,6 +23,7 @@ export const ProfilePic = (props: Props) => {
             // src= {userObject ? userObject.displayPicture : profilePic}
             sx={{ width: props.width, height: props.height }}
         />
+        {/* {props.src} */}
         </>
     )
 }

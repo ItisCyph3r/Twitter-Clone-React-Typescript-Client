@@ -2,14 +2,19 @@ import React from 'react'
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
-import SigninButton from '../../conponents/signin-button/signin-button';
-import {FaApple, FaGithub, FaGoogle} from 'react-icons/fa';
+//delete     import SigninButton from '../../conponents/signin-button/signin-button';
+import {FaEnvelope, FaGithub, FaGoogle} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 export const Login: React.FC<{}> = () => {
 
+    const navigate = useNavigate();
+
     const googleLogin = () => {
         window.open('http://localhost:4000/auth/google', '_self', 'width=500, height=600')
+        
     }
 
     const githubLogin = () => {
@@ -43,7 +48,7 @@ export const Login: React.FC<{}> = () => {
                         >
                             <span className='flex items-center gap-2'> 
                                 <>
-                                <FaGoogle color='red'/> 
+                                <FaGoogle color='red' /> 
                                 Sign up with Google
                                 </>
                             </span>
@@ -65,13 +70,18 @@ export const Login: React.FC<{}> = () => {
 
                         <hr className='w-full border-gray-700 mt-5' /> 
 
-                        <SigninButton
-                            className='mt-5'
-                            text='Sign up with phone or email'
-                            color='white'
-                            bgColor='twitterBlue'
-                            // icon={FaApple}
-                        />
+                        <button 
+                            className={`w-full p-2 rounded-3xl font-bold text-center flex justify-center text-sm bg-twitterBlue text-white mt-5` }
+                            onClick={()=>{navigate('/')}}
+                        >
+                            <span className='flex items-center gap-2'> 
+                                <>
+                                <FaEnvelope />
+                                Sign up with phone or email
+                                </>
+                            </span>
+                        </button>
+                        
 
                         <p className='text-xs mt-2 text-grey-400'>
                             By signing up, you agree to the 
@@ -84,16 +94,6 @@ export const Login: React.FC<{}> = () => {
 
                         <p className='mt-5 lg:mt-14 font-bold'>Already have an account?</p>
 
-                        <Link to='/home'>
-                            <SigninButton
-
-                                className='mt-5 mb-5 outline-1 outline-gray-700 '
-                                text='Sign in'
-                                color='twitterBlue'
-                                bgColor='black'
-                                icon={FaApple}
-                            />
-                        </Link>
                     </div>
                 </div>
             </div>
@@ -103,25 +103,3 @@ export const Login: React.FC<{}> = () => {
         </>
     )
 }
-
-
-
-
-{/* <SigninButton
-                            className='mt-1'
-                            text='Sign up with Google'
-                            color='black'
-                            bgColor='white'
-                            onClick={googleLogin}
-                            // icon={FaApple}
-                        /> */}
-
-
-                    //     <SigninButton
-                    //     className='mt-5'
-                    //     text='Sign up with phone or email'
-                    //     color='black'
-                    //     bgColor='white'
-                    //     icon={FaApple}
-                    //     onClick={githubLogin}
-                    // />

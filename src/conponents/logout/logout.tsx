@@ -3,18 +3,14 @@ import { useContext } from 'react';
 import { IUser } from '../../types/maintypes';
 import { myContext } from '../context';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-export const Logout = () => {
-    console.log('working');
-    axios.get('http://localhost:4000/auth/logout', {withCredentials: true})
-        .then((res: AxiosResponse) => {
-            if(res.data === "Logout Successful"){
-                window.location.href = '/'
-            }
-        }
-    )
-}
+// export const Logout = () => {
+
+//     const navigate = useNavigate();
+//     console.log('working');
+    
+// }
 
 // export default function LogoutBTN() {
 

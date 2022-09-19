@@ -23,7 +23,9 @@ export const Home: React.FC<{}> = () => {
                 <div className=' h-screen overflow-y-scroll bg-black border-gray-700 border-x-[0.1px] feed lg:w-1/2 w-full'>  
                     <div className='font-bold flex justify-between items-center bg-black px-5 py-2'>
                         <div className='flex items-center gap-2 justify-center'>
-                            <ProfilePic width={42} height={42}/>
+                            <ProfilePic width={42} height={42} 
+                            // src={userObject.displayPicture}
+                            />
                             <h1 className='px-3 text-xl'> 
                                 Home
                             </h1>

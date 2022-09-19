@@ -12,7 +12,7 @@ export function Context(props: any) {
         .then((res: AxiosResponse) => {
             if (res.data) return setuserObject(res.data)
         })
-    }, [userObject])
+    }, [])
     return (
         <myContext.Provider value={userObject}>
             {props.children}

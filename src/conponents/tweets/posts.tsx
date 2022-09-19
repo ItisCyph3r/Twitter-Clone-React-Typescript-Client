@@ -18,7 +18,7 @@ export default function Posts() {
 
     const [feed, setFeed] = useState<any>([]);
 
-    const userObject = useContext(myContext) as IUser;
+    // const userObject = useContext(myContext) as IUser;
 
     const fetchPost = async () => {
         return fetch('/api')
@@ -35,7 +35,9 @@ export default function Posts() {
 
     return (
         <>
+        {/* {console.log(feed)} */}
             {
+                
                 feed.length !== 0 ? 
                 Object.keys(feed).map((key) =>(
                     // console.log(feed[key].username)
@@ -69,9 +71,8 @@ export default function Posts() {
                                                 {/* @hackSfdnlnfsdnlfsdlfnlsdnflnnlsdadlsnndlan */}
                                                 @{feed[key].username}
                                             </div>
-                                            <div className='ml-0 flex items-center max-w-[100px]'>
-                                                . 13h
-                                                {/* {parseCurrentDate(element.date)} */}
+                                            <div className='ml-1 flex items-center max-w-[100px]'>
+                                                . {parseCurrentDate(item.date)}
                                             </div>
                                             
                                         </div> 
