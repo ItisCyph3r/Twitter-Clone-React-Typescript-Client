@@ -1,4 +1,5 @@
-import { Avatar } from '@mui/material';
+// import { Avatar } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
 import { useContext } from 'react';
 import profilePic from '../../assets/873052.png';
 import { IUser } from '../../types/maintypes';

@@ -26,7 +26,7 @@ export const Sidebar: React.FC<{}> = () => {
     });
 
     const userObject = useSelector((state: any) => state.auth.userAuth);
-
+    
     useEffect(()=>{
         setUserState({
             userName: userObject.userName,

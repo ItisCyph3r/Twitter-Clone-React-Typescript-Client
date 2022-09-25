@@ -52,6 +52,12 @@ export default function Posts() {
                                     height= {45} 
                                     src={feed[key].displayPicture}
                                 />
+                                <div 
+                                    // style={`background-image: url("${feed[key].displayPicture}")`}
+                    
+                                    className={`w-[55px] h-[45px] rounded-[50%] bg-red-700`}>
+
+                                </div>
 
                                 {/* <div className='w-[1px] h-[80%] bg-gray-500 relative left-1/2'/> */}
 
@@ -88,6 +94,7 @@ export default function Posts() {
                                 
                                 
                                     <div className='relative bottom-[0.1rem] text-[0.9rem]'>
+                                    {/* {feed[key].displayPicture} */}
                                         {item.tweet}
                                     </div>
                                 
