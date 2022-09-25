@@ -15,12 +15,10 @@ export const App: React.FC<{}> = () => {
     // const userObject = useContext(myContext) as IUser;
     // console.log(userObject);
 
-    const notification = useSelector((state: any) => state.auth.userAuth);
+    // const notification = useSelector((state: any) => state.auth.userAuth);
 
-    console.log(notification, 'adasda');
+    // console.log(notification, 'adasda');
     
-    <LoginAPI />   
-
     return (
         <>
         
