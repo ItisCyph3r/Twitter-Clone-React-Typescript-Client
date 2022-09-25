@@ -4,7 +4,9 @@ import './index.css';
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
-import { Context } from './conponents/context';
+import {Provider} from "react-redux";
+import store from './store';
+// import { Context } from './conponents/context';
 
 
 const root = ReactDOM.createRoot(
@@ -13,9 +15,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Context>
+      <Provider store={store}>
+      {/* <Context> */}
         <App />
-      </Context>
+      {/* </Context> */}
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );

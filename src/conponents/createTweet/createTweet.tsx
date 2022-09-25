@@ -10,7 +10,7 @@ import { ProfilePic } from '../profilePic/profilePic';
 import { UUID } from '../getCurrentDate';
 import './createTweet.css';
 import { SetTweet } from '../../express/express.config';
-import { myContext } from '../context';
+// import { myContext } from '../context';
 import { IUser } from '../../types/maintypes';
 
 
@@ -37,7 +37,7 @@ export function Tweet() {
         setTweetInput('');
     }
 
-    const userObject = useContext(myContext) as IUser;
+    // const userObject = useContext(myContext) as IUser;
 
     const SetTweet = async () => {
         
@@ -48,7 +48,8 @@ export function Tweet() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                id: userObject._id,
+                // id: userObject._id,
+                id: '02342321',
                 tweet: tweetInput,
                 uuid: UUID(),
                 date: new Date()

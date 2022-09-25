@@ -3,18 +3,22 @@ import { ProfilePic } from '../profilePic/profilePic';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import {FaRetweet, FaComment, FaRegHeart} from 'react-icons/fa';
 import {FiShare} from 'react-icons/fi';
-import { myContext } from '../context';
+// import { myContext } from '../context';
 import { IUser } from '../../types/maintypes';
 
 export const Threads: React.FC<{}> = () => {
-    const userObject = useContext(myContext) as IUser;
+    // const userObject = useContext(myContext) as IUser;
 
     return (
         <>
             <div className='px-3 pt-5 flex gap-2'>
                 <div className=''>
 
-                    <ProfilePic width={50} height= {50} src={userObject.displayPicture}/>
+                    <ProfilePic 
+                    width={50} 
+                    height= {50} 
+                    // src={userObject.displayPicture}
+                    />
 
                     <div className='w-[1px] h-[80%] bg-gray-500 relative left-1/2'/>
 
@@ -45,7 +49,12 @@ export const Threads: React.FC<{}> = () => {
                 </div>
             </div>
             <div className='px-[1.25rem] flex items-center pb-2 py-1 mt-0 hover:bg-[#101010]'>
-                <ProfilePic  width={35} height= {35} src={userObject.displayPicture}/>
+                <ProfilePic  
+                width={35} 
+                height= {35} 
+                // src={userObject.displayPicture}
+                />
+
                 <div className='px-5 text-[#1D9BF0] text-sm leading-tight cursor-pointer mt-1'>
                     Show this thread
                 </div>

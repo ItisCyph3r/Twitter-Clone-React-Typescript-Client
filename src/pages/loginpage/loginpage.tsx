@@ -72,7 +72,7 @@ export const Login: React.FC<{}> = () => {
 
                         <button 
                             className={`w-full p-2 rounded-3xl font-bold text-center flex justify-center text-sm bg-twitterBlue text-white mt-5` }
-                            onClick={()=>{navigate('/')}}
+                            onClick={()=>{window.location.href = '/home'}}
                         >
                             <span className='flex items-center gap-2'> 
                                 <>

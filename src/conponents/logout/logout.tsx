@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { useContext } from 'react';
 import { IUser } from '../../types/maintypes';
-import { myContext } from '../context';
+// import { myContext } from '../context';
 
 import { Link, useNavigate } from 'react-router-dom';
 

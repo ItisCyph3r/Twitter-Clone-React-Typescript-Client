@@ -13,14 +13,13 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { ProfilePic } from '../profilePic/profilePic';
 // import { Logout } from '../logout/logout';
 import { IUser } from '../../types/maintypes';
-import { myContext } from '../context';
+// import { myContext } from '../context';
 import axios, { AxiosResponse } from 'axios';
 
 export const Sidebar: React.FC<{}> = () => {
 
-    const userObject = useContext(myContext) as IUser
+    // const userObject = useContext(myContext) as IUser
     
-    const navigate = useNavigate();
 
     const Logout = () => {
         axios.get('http://localhost:4000/auth/logout', {withCredentials: true})
@@ -28,7 +27,7 @@ export const Sidebar: React.FC<{}> = () => {
                 console.log(res.data)
                 if(res.data === "Logout Successful"){
                     console.log('Logged out :)')
-                    navigate('/');
+                    window.location.href = '/'
                 }
             }
         )
@@ -86,16 +85,10 @@ export const Sidebar: React.FC<{}> = () => {
 
                 <div>
                     <div className='text-[0.85rem] leading-5 font-bold'>
-                        {
-                            userObject ? 
-                            <div>
-                                {`${userObject.displayName}`}
-                            </div> 
-                                : 
                             <div>
                                 fml
                             </div> 
-                        }
+                        
                         
                         {/* <VerifiedIcon 
                             fontSize="small" 
@@ -103,16 +96,12 @@ export const Sidebar: React.FC<{}> = () => {
                         /> */}
                     </div>
                     <div className='opacity-50 text-[0.85rem]'> 
-                        {
-                            userObject ? 
-                            <div>
-                                @{`${userObject.username}`}
-                            </div> 
-                                : 
+                        
+                            
                             <div>
                                 @fml
                             </div> 
-                        }
+                        
                     </div>
                 </div>
             </div>

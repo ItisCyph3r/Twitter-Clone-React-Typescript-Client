@@ -1,25 +1,25 @@
-import React, { createContext, useEffect, useState } from 'react'
-import axios, { AxiosResponse } from 'axios';
+// import React, { createContext, useEffect, useState } from 'react'
+// import axios, { AxiosResponse } from 'axios';
 
-export const myContext = createContext({});
+// export const myContext = createContext({});
 
-export function Context(props: any) {
-    const [userObject, setuserObject] = useState<any>();
-    // console.log(userObject)
+// export function Context(props: any) {
+//     const [userObject, setuserObject] = useState<any>();
+//     // console.log(userObject)
     
-    useEffect(() => {
-        axios.get("http://localhost:4000/getuser", {withCredentials: true})
-        .then((res: AxiosResponse) => {
-            if (res.data) return setuserObject(res.data)
-        })
-    }, [])
-    return (
-        <myContext.Provider value={userObject}>
-            {props.children}
-        </myContext.Provider>
+//     useEffect(() => {
+//         axios.get("http://localhost:4000/getuser", {withCredentials: true})
+//         .then((res: AxiosResponse) => {
+//             if (res.data) return setuserObject(res.data)
+//         })
+//     }, [])
+//     return (
+//         <myContext.Provider value={userObject}>
+//             {props.children}
+//         </myContext.Provider>
             
-    )
-}
+//     )
+// }
 
 
 

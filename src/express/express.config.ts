@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { myContext } from "../conponents/context";
+// import { myContext } from "../conponents/context";
 import { UUID } from "../conponents/getCurrentDate";
 import { IUser } from "../types/maintypes";
 
 import React from 'react';
 
 export async function SetTweet(prop: string) {
-    const userObject = useContext(myContext) as IUser;
+    // const userObject = useContext(myContext) as IUser;
 
     const data = await fetch('/api', {
         method: 'POST',

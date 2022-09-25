@@ -2,7 +2,7 @@ import { Avatar } from '@mui/material';
 import { useContext } from 'react';
 import profilePic from '../../assets/873052.png';
 import { IUser } from '../../types/maintypes';
-import { myContext } from '../context';
+// import { myContext } from '../context';
 // import profilePic from '../../assets/873052.png';
 
 interface Props{
@@ -13,7 +13,7 @@ interface Props{
 
 export const ProfilePic = (props: Props) => {
 
-    const userObject = useContext(myContext) as IUser
+    // const userObject = useContext(myContext) as IUser
 
     return (
         <>
