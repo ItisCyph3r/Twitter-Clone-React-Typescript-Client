@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './home.css';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import { Tweet } from '../../conponents/createTweet/createTweet';
@@ -9,11 +9,20 @@ import { ProfilePic } from '../../conponents/profilePic/profilePic';
 import { Sidebar } from '../../conponents/sidebar/sidebar';
 // import { myContext } from '../../conponents/context';
 import { IUser } from '../../types/maintypes';
+import { useSelector } from 'react-redux';
 
 export const Home: React.FC<{}> = () => {
-    // const userObject = useContext(myContext) as IUser;
-    
-    // console.log(userObject);
+    const userObject = useSelector((state: any) => state.auth.userAuth);
+
+    const [userState, setUserState] = useState({
+        displayPicture: ''
+    });
+
+    useEffect(()=>{
+        setUserState({
+            displayPicture: userObject.displayPicture
+        })
+    }, [userObject.username, userObject.displayName, userObject.displayPicture])
     return (
         <>
             <div className=' w-full flex overflow-hidden bg-black m-auto h-screen lg:w-[93%]'>
@@ -24,7 +33,7 @@ export const Home: React.FC<{}> = () => {
                     <div className='font-bold flex justify-between items-center bg-black px-5 py-2'>
                         <div className='flex items-center gap-2 justify-center'>
                             <ProfilePic width={42} height={42} 
-                            // src={userObject.displayPicture}
+                            src={userState.displayPicture}
                             />
                             <h1 className='px-3 text-xl'> 
                                 Home

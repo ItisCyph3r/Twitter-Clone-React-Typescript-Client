@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import SidebarLink from './sidebarlink';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -15,17 +15,31 @@ import { ProfilePic } from '../profilePic/profilePic';
 import { IUser } from '../../types/maintypes';
 // import { myContext } from '../context';
 import axios, { AxiosResponse } from 'axios';
+import { useSelector } from 'react-redux';
+import { display } from '@mui/system';
 
 export const Sidebar: React.FC<{}> = () => {
+    const [userState, setUserState] = React.useState({
+        userName: '',
+        displayName: '',
+        displayPicture: ''
+    });
 
-    // const userObject = useContext(myContext) as IUser
+    const userObject = useSelector((state: any) => state.auth.userAuth);
+
+    useEffect(()=>{
+        setUserState({
+            userName: userObject.userName,
+            displayName: userObject.displayName,
+            displayPicture: userObject.displayPicture
+        })
+    }, [userObject.userName, userObject.displayName, userObject.displayPicture])
     
-
     const Logout = () => {
         axios.get('http://localhost:4000/auth/logout', {withCredentials: true})
             .then((res: AxiosResponse) => {
                 console.log(res.data)
-                if(res.data === "Logout Successful"){
+                if(res.data === "done"){
                     console.log('Logged out :)')
                     window.location.href = '/'
                 }
@@ -51,23 +65,6 @@ export const Sidebar: React.FC<{}> = () => {
                 <SidebarLink text='Profile' icon={<PermIdentityIcon/>} />
                 <SidebarLink className='cursor-pointer' text='Logout' icon={<MoreHorizIcon/>} onClick={Logout}/>
                 {/* <SidebarLink text='More' icon={<MoreHorizIcon/>} /> */}
-
-                {
-
-                
-                    // userObject ? 
-                    // (   
-                    //     <Link to='/'>
-                    //         <SidebarLink className='cursor-pointer' text='Logout' icon={<MoreHorizIcon/>} onClick={Logout}/>
-                    //     </Link>
-                    // )
-                    // :
-                    // (
-                    //     <Link to='/'>
-                    //         <SidebarLink text='Login' icon={<MoreHorizIcon/>}/>
-                    //     </Link>  
-                    // )
-                }
                 
                 <button className="py-3 mt-3 w-full px-5 bg-twitterBlue text-lg rounded-3xl" >
                     Tweet
@@ -80,13 +77,13 @@ export const Sidebar: React.FC<{}> = () => {
                 <ProfilePic 
                 width={38} 
                 height= {38} 
-                // src={userObject.displayPicture}
+                src={userObject.displayPicture}
                 />
 
                 <div>
                     <div className='text-[0.85rem] leading-5 font-bold'>
                             <div>
-                                fml
+                                {userState.displayName}
                             </div> 
                         
                         
@@ -99,7 +96,7 @@ export const Sidebar: React.FC<{}> = () => {
                         
                             
                             <div>
-                                @fml
+                                @{userState.userName}
                             </div> 
                         
                     </div>

@@ -5,13 +5,14 @@ import PollIcon from '@mui/icons-material/Poll';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ProfilePic } from '../profilePic/profilePic';
 import { UUID } from '../getCurrentDate';
 import './createTweet.css';
 import { SetTweet } from '../../express/express.config';
 // import { myContext } from '../context';
 import { IUser } from '../../types/maintypes';
+import { useSelector } from 'react-redux';
 
 
 
@@ -20,6 +21,21 @@ export function Tweet() {
 
 // export const Tweet: React.FC<{}> = () => {
     
+    const userObject = useSelector((state: any) => state.auth.userAuth);
+
+    const [userState, setUserState] = useState({
+        _id: '',
+        displayPicture: ''
+    });
+
+    useEffect(()=>{
+        setUserState({
+            _id: userObject._id,
+            displayPicture: userObject.displayPicture
+        })
+    }, [userObject._id, userObject.displayPicture])
+
+
     const [displayOptions, setDisplayOptions] = useState<boolean>(false);
 
     const [tweetInput, setTweetInput] = useState<string>('');
@@ -48,8 +64,7 @@ export function Tweet() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                // id: userObject._id,
-                id: '02342321',
+                id: userState._id,
                 tweet: tweetInput,
                 uuid: UUID(),
                 date: new Date()
@@ -69,7 +84,7 @@ export function Tweet() {
                 <ProfilePic 
                 width={56} 
                 height= {56} 
-                // src={userObject.displayPicture}
+                src={userState.displayPicture}
                 />
                 
                 <div className='w-full'>

@@ -47,7 +47,11 @@ export default function Posts() {
                             {/* <div className=''> */}
                             {/* {feed[key].displayPicture} */}
 
-                                <ProfilePic width={45} height= {45} src={feed[key].displayPicture}/>
+                                <ProfilePic 
+                                    width={45} 
+                                    height= {45} 
+                                    src={feed[key].displayPicture}
+                                />
 
                                 {/* <div className='w-[1px] h-[80%] bg-gray-500 relative left-1/2'/> */}
 
@@ -69,7 +73,7 @@ export default function Posts() {
                                         <div className='opacity-50 md:text-sm text-xs flex items-center'> 
                                             <div className='md:max-w-[120px] max-w-[70px] whitespace-nowrap overflow-hidden text-ellipsis ml-1'>
                                                 {/* @hackSfdnlnfsdnlfsdlfnlsdnflnnlsdadlsnndlan */}
-                                                @{feed[key].username}
+                                                @{feed[key].userName}
                                             </div>
                                             <div className='ml-1 flex items-center max-w-[100px]'>
                                                 . {parseCurrentDate(item.date)}
