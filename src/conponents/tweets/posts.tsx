@@ -20,12 +20,12 @@ export default function Posts() {
 
     // const userObject = useContext(myContext) as IUser;
 
-    const fetchPost = async () => {
+    const fetchPost = () => {
         return fetch('/api')
             .then(res => res.json())
             .then(async data => {
                 // console.log(data.feed)
-                await setFeed(data.feed);
+                setFeed(data.feed);
             })
     }
     
@@ -52,12 +52,12 @@ export default function Posts() {
                                     height= {45} 
                                     src={feed[key].displayPicture}
                                 />
-                                <div 
+                                {/* <div 
                                     // style={`background-image: url("${feed[key].displayPicture}")`}
                     
                                     className={`w-[55px] h-[45px] rounded-[50%] bg-red-700`}>
 
-                                </div>
+                                </div> */}
 
                                 {/* <div className='w-[1px] h-[80%] bg-gray-500 relative left-1/2'/> */}
 

@@ -51,54 +51,66 @@ export const Sidebar: React.FC<{}> = () => {
     
     return (
         <>
-            <div className="sidebar text-white pr-8">
-                <div className='py-2 px-3'>
-                    <TwitterIcon sx={{ fontSize: 40 }}/>  
-                </div>
-                
-                <SidebarLink text="Home" icon={<HomeIcon/>} />
-                <SidebarLink text='Explore' icon={<TagIcon/>} />
-                <SidebarLink text="Notifications" icon={<NotificationsNoneIcon/>} />
-                <SidebarLink text='Messages' icon={<MailOutlineIcon/>} />
-                <SidebarLink text='Bookmarks' icon={<BookmarkBorderIcon/>} />
-                <SidebarLink text='Lists' icon={<ListAltIcon/>} />
-                <SidebarLink text='Profile' icon={<PermIdentityIcon/>} />
-                <SidebarLink className='cursor-pointer' text='Logout' icon={<MoreHorizIcon/>} onClick={Logout}/>
-                {/* <SidebarLink text='More' icon={<MoreHorizIcon/>} /> */}
-                
-                <button className="py-3 mt-3 w-full px-5 bg-twitterBlue text-lg rounded-3xl" >
-                    Tweet
-                </button>
-            </div>
-
-            <div className="mt-20 mr-10 p-3 w-[95%] flex items-center gap-2 hover:bg-[#181818] rounded-3xl">
-                {/* <ProfilePic width={38} height= {38}/> */}
-
-                <ProfilePic 
-                width={38} 
-                height= {38} 
-                src={userObject.displayPicture}
-                />
-
-                <div>
-                    <div className='text-[0.85rem] leading-5 font-bold'>
-                            <div>
-                                {userState.displayName}
-                            </div> 
-                        
-                        
-                        {/* <VerifiedIcon 
-                            fontSize="small" 
-                            sx={{ color: 'red-[#1D9BF0]' }}
-                        /> */}
+            <div className='text-white'>
+                <div className='flex justify-center lg:justify-start'>
+                    <div className='py-0 px-3 mt-1'>
+                        <TwitterIcon sx={{ fontSize: 40 }}/>  
                     </div>
-                    <div className='opacity-50 text-[0.85rem]'> 
-                        
-                            
-                            <div>
-                                @{userState.userName}
-                            </div> 
-                        
+                </div>
+
+                <div className='flex justify-center lg:justify-start'>
+                    <div className=''>
+
+                    
+                    <SidebarLink text="Home" icon={<HomeIcon/>} />
+                    <SidebarLink text='Explore' icon={<TagIcon/>} />
+                    <SidebarLink text="Notifications" icon={<NotificationsNoneIcon/>} />
+                    <SidebarLink text='Messages' icon={<MailOutlineIcon/>} />
+                    <SidebarLink text='Bookmarks' icon={<BookmarkBorderIcon/>} />
+                    <SidebarLink text='Lists' icon={<ListAltIcon/>} />
+                    <SidebarLink text='Profile' icon={<PermIdentityIcon/>} />
+                    <SidebarLink className='cursor-pointer' text='Logout' icon={<MoreHorizIcon/>} onClick={Logout}/>
+                    {/* <SidebarLink text='More' icon={<MoreHorizIcon/>} /> */}
+                    </div>
+                </div>
+                {/* <div className='flex justify-center lg:justify-start'> */}
+                <div className='flex justify-center lg:block pr-0 lg:pr-10'>
+                    <div className=''>
+                        <button className="py-3 mt-1 lg:w-full px-4 bg-twitterBlue text-lg rounded-3xl">
+                            <div className='lg:block hidden'>
+                                Tweet
+                            </div>
+                            <div className='lg:hidden block'>
+                                <HomeIcon/>
+                            </div>
+
+                        </button>
+                    </div>
+                </div>
+
+                <div className='flex justify-center lg:block'>
+                    <div className="absolute bottom-5 p-3 w-auto flex items-center gap-2 hover:bg-[#181818] rounded-3xl">
+                        <ProfilePic width={38} height= {38} src={userObject.displayPicture} />
+                    
+                        <div className='hidden lg:block'>
+                            <div className='text-[0.85rem] leading-5 font-bold'>
+                                <div>
+                                    {userState.displayName}
+                                </div> 
+                                
+                                
+                                {/* <VerifiedIcon 
+                                    fontSize="small" 
+                                    sx={{ color: 'red-[#1D9BF0]' }}
+                                /> */}
+                            </div>
+                            <div className='opacity-50 text-[0.85rem]'>                            
+                                <div>
+                                    @{userState.userName}
+                                </div> 
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

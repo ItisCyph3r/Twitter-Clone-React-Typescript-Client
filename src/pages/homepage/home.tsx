@@ -26,7 +26,7 @@ export const Home: React.FC<{}> = () => {
     return (
         <>
             <div className=' w-full flex overflow-hidden bg-black m-auto h-screen lg:w-[93%]'>
-                <div className='bg-black hidden lg:w-[20%] w-[100px] sm:block'>
+                <div className='bg-black hidden lg:w-[20%] w-[130px] sm:block'>
                     <Sidebar/>    
                 </div>
                 <div className=' h-screen overflow-y-scroll bg-black border-gray-700 border-x-[0.1px] feed lg:w-1/2 w-full'>  

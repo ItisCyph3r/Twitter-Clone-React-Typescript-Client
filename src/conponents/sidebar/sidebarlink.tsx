@@ -9,9 +9,9 @@ interface Props{
 
 export default function SidebarLink(props: Props) {
     return (
-        <button className={`flex p-3 rounded-full gap-5 items-center w-fit hover:bg-[#181818] ${props.className}`} onClick={props.onClick}>
+        <button className={`flex my-1 p-3 rounded-full gap-5 items-center w-fit hover:bg-[#181818] ${props.className}`} onClick={props.onClick}>
             {props.icon}
-            <div className='text-lg font-bold lg:block hidden text-center'>
+            <div className='text-[1.025rem] font-bold lg:block hidden text-center'>
                 {props.text}
             </div>
         </button>
