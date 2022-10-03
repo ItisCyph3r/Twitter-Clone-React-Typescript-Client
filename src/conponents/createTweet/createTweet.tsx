@@ -64,7 +64,7 @@ export function Tweet() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                id: userState._id,
+                userId: userState._id,
                 tweet: tweetInput,
                 uuid: UUID(),
                 date: new Date()

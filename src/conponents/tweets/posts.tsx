@@ -21,11 +21,11 @@ export default function Posts() {
     // const userObject = useContext(myContext) as IUser;
 
     const fetchPost = () => {
-        return fetch('/api')
+        return fetch('http://localhost:4000/api')
             .then(res => res.json())
             .then(async data => {
-                // console.log(data.feed)
-                setFeed(data.feed);
+                // console.log(data)
+                // setFeed(data);
             })
     }
     
@@ -35,13 +35,13 @@ export default function Posts() {
 
     return (
         <>
-        {/* {console.log(feed)} */}
+        {console.log(feed)}
             {
                 
                 feed.length !== 0 ? 
-                Object.keys(feed).map((key) =>(
-                    // console.log(feed[key].username)
-                    feed[key].tweet.map((item: any) => (
+                
+                    feed.map((element: any) => (
+
                     <div >
                         <div className='px-3 pt-5 flex gap-2'>
                             {/* <div className=''> */}
@@ -50,7 +50,7 @@ export default function Posts() {
                                 <ProfilePic 
                                     width={45} 
                                     height= {45} 
-                                    src={feed[key].displayPicture}
+                                    src={element.displayPicture}
                                 />
                                 {/* <div 
                                     // style={`background-image: url("${feed[key].displayPicture}")`}
@@ -69,7 +69,7 @@ export default function Posts() {
                                         <div className='gap-8 text-sm font-bold md:max-w-[300px] max-w-[100px] whitespace-nowrap overflow-hidden text-ellipsis'>
                                             {/* Name cannot be blsdaoslmdasmdamdsdf dadjsajdsajdasddnlfssdlnfsnldnlfndslfnlsn */}
                                             
-                                            {feed[key].displayName}
+                                            {element.displayName}
 
                                             {/* <VerifiedIcon 
                                                 fontSize="small" 
@@ -79,23 +79,23 @@ export default function Posts() {
                                         <div className='opacity-50 md:text-sm text-xs flex items-center'> 
                                             <div className='md:max-w-[120px] max-w-[70px] whitespace-nowrap overflow-hidden text-ellipsis ml-1'>
                                                 {/* @hackSfdnlnfsdnlfsdlfnlsdnflnnlsdadlsnndlan */}
-                                                @{feed[key].userName}
+                                                @{element.userName}
                                             </div>
                                             <div className='ml-1 flex items-center max-w-[100px]'>
-                                                . {parseCurrentDate(item.date)}
+                                                . {parseCurrentDate(element.date)}
                                             </div>
                                             
                                         </div> 
                                     </div>
                                     <div>
-                                        <BasicMenu uuid ={feed[key]._id}/>
+                                        <BasicMenu uuid ={element._id}/>
                                     </div>
                                 </div>
                                 
                                 
                                     <div className='relative bottom-[0.1rem] text-[0.9rem]'>
                                     {/* {feed[key].displayPicture} */}
-                                        {item.tweet}
+                                        {element.tweet}
                                     </div>
                                 
                                 
@@ -111,8 +111,7 @@ export default function Posts() {
                         </div>
                         <hr className='w-full border-gray-700' /> 
                     </div>
-                    ))
-                )).reverse() 
+                    )).reverse() 
 
                 :
 
