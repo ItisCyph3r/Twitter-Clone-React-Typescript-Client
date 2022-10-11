@@ -8,34 +8,40 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import BasicMenu from '../dropdown-menu/dropdown-menu';
 import { parseCurrentDate } from '../getCurrentDate';
-// import { myContext } from '../context';
+import axios, { AxiosResponse } from 'axios';
 import { IUser } from '../../types/maintypes';
+import { useSelector } from 'react-redux';
+import React from 'react';
 
 
 export default function Posts() {
 
-    // const [feed, setFeed] = useState<any[]>([]);
+    const [feed, setFeed] = useState<any[]>([]);
 
-    const [feed, setFeed] = useState<any>([]);
-
-    // const userObject = useContext(myContext) as IUser;
-
-    const fetchPost = () => {
-        return fetch('http://localhost:4000/api')
-            .then(res => res.json())
-            .then(async data => {
-                // console.log(data)
-                // setFeed(data);
-            })
-    }
+    const [userState, setUserState] = React.useState({
+        isVerified: false
+    });
     
+    const userObject = useSelector((state: any) => state.auth.userAuth);
+
+    useEffect(()=>{
+        setUserState({
+            isVerified: userObject.isVerified
+        })
+    }, [userObject.isVerified])
+
+
     useEffect(() => {
-        fetchPost()
+        axios.get("http://localhost:4000/api")
+        .then((res: AxiosResponse) => {
+            if (res.data) {
+                setFeed(res.data);
+            } 
+        })
     }, [feed])
 
     return (
         <>
-        {console.log(feed)}
             {
                 
                 feed.length !== 0 ? 
@@ -44,42 +50,34 @@ export default function Posts() {
 
                     <div >
                         <div className='px-3 pt-5 flex gap-2'>
-                            {/* <div className=''> */}
-                            {/* {feed[key].displayPicture} */}
-
-                                <ProfilePic 
-                                    width={45} 
-                                    height= {45} 
-                                    src={element.displayPicture}
-                                />
-                                {/* <div 
-                                    // style={`background-image: url("${feed[key].displayPicture}")`}
-                    
-                                    className={`w-[55px] h-[45px] rounded-[50%] bg-red-700`}>
-
-                                </div> */}
-
-                                {/* <div className='w-[1px] h-[80%] bg-gray-500 relative left-1/2'/> */}
-
-                            {/* </div> */}
-                            
+                            <ProfilePic 
+                                width={45} 
+                                height= {45} 
+                                src={element.displayPicture}
+                            />
+                                
                             <div className='ml-2 w-full'>
                                 <div className='flex justify-between'>
                                     <div className='cursor-pointer flex items-center '>
-                                        <div className='gap-8 text-sm font-bold md:max-w-[300px] max-w-[100px] whitespace-nowrap overflow-hidden text-ellipsis'>
-                                            {/* Name cannot be blsdaoslmdasmdamdsdf dadjsajdsajdasddnlfssdlnfsnldnlfndslfnlsn */}
-                                            
+                                        <div className='gap-8 text-sm font-bold md:max-w-[300px] max-w-[100px] whitespace-nowrap overflow-hidden text-ellipsis'>                                           
                                             {element.displayName}
 
-                                            {/* <VerifiedIcon 
-                                                fontSize="small" 
-                                                sx={{ color: 'red-[#1D9BF0]' }}
-                                            /> */}
+                                        
                                         </div>
                                         <div className='opacity-50 md:text-sm text-xs flex items-center'> 
                                             <div className='md:max-w-[120px] max-w-[70px] whitespace-nowrap overflow-hidden text-ellipsis ml-1'>
-                                                {/* @hackSfdnlnfsdnlfsdlfnlsdnflnnlsdadlsnndlan */}
                                                 @{element.userName}
+                                                {console.log(userState.isVerified)}
+                                                {
+                                                    userState.isVerified === true ?
+                                                        <VerifiedIcon 
+                                                        fontSize="small" 
+                                                        sx={{ color: 'red-[#1D9BF0]' }}
+                                                        />
+                                            
+                                                    :
+                                                    null
+                                                }
                                             </div>
                                             <div className='ml-1 flex items-center max-w-[100px]'>
                                                 . {parseCurrentDate(element.date)}
@@ -94,14 +92,12 @@ export default function Posts() {
                                 
                                 
                                     <div className='relative bottom-[0.1rem] text-[0.9rem]'>
-                                    {/* {feed[key].displayPicture} */}
                                         {element.tweet}
                                     </div>
                                 
                                 
                                 
                                 <div className='flex justify-between items-center my-3'>
-                                    {/* <FaComment/> */}
                                     <BiComment />
                                     <FaRetweet />
                                     <FaRegHeart />

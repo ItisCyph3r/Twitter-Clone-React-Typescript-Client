@@ -9,7 +9,7 @@ import { Sidebar } from '../../conponents/sidebar/sidebar';
 import { useSelector } from 'react-redux';
 import '../../styles/global.util.css';
 
-export const Home: React.FC<{}> = () => {
+export const Status: React.FC<{}> = () => {
     const userObject = useSelector((state: any) => state.auth.userAuth);
 
     const [userState, setUserState] = useState({
@@ -28,7 +28,7 @@ export const Home: React.FC<{}> = () => {
                     <Sidebar/>    
                 </div>
                 <div className=' h-screen overflow-y-scroll bg-black border-gray-700 border-x-[0.1px] feed lg:w-1/2 w-full'>  
-                    <div className='font-bold flex justify-between items-center bg-black px-5 py-2'>
+                    {/* <div className='font-bold flex justify-between items-center bg-black px-5 py-2'>
                         <div className='flex items-center gap-2 justify-center'>
                             <ProfilePic width={42} height={42} 
                             src={userState.displayPicture}
@@ -43,7 +43,7 @@ export const Home: React.FC<{}> = () => {
                     <div className='hidden sm:block'>
                         <Tweet/>
                     </div>   
-                    <Posts/>
+                    <Posts/> */}
                 </div>
                 <div className='bg-black overflow-y-scroll hidden sm:block w-[20%] lg:w-[30%] px-5 feed'>
                     <div className='lg:block hidden'>

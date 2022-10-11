@@ -1,17 +1,24 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import { deleteTweet } from '../../express/express.config';
 
-
-interface Props{
-    uuid?: any
+const deleteTweet = async(props: string) => {
+    return fetch('/delete_tweet', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            tweet: props
+        })
+    })
+    .then(data => {
+        data.json()
+        console.log(data)
+    })
 }
 export default function BasicMenu(props: any) {
-    // export const BasicMenu: React.FC<{}> = (props: Props) => {
-
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: any) => {

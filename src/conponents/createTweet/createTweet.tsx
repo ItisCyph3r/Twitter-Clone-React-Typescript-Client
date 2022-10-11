@@ -5,21 +5,13 @@ import PollIcon from '@mui/icons-material/Poll';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { useContext, useEffect, useState } from 'react';
 import { ProfilePic } from '../profilePic/profilePic';
 import { UUID } from '../getCurrentDate';
 import './createTweet.css';
-import { SetTweet } from '../../express/express.config';
-// import { myContext } from '../context';
-import { IUser } from '../../types/maintypes';
 import { useSelector } from 'react-redux';
-
-
-
+import { useEffect, useState } from 'react';
 
 export function Tweet() {
-
-// export const Tweet: React.FC<{}> = () => {
     
     const userObject = useSelector((state: any) => state.auth.userAuth);
 
@@ -64,7 +56,7 @@ export function Tweet() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                userId: userState._id,
+                user: userState._id,
                 tweet: tweetInput,
                 uuid: UUID(),
                 date: new Date()

@@ -17,12 +17,14 @@ import { IUser } from '../../types/maintypes';
 import axios, { AxiosResponse } from 'axios';
 import { useSelector } from 'react-redux';
 import { display } from '@mui/system';
+import VerifiedIcon from '@mui/icons-material/Verified';
 
 export const Sidebar: React.FC<{}> = () => {
     const [userState, setUserState] = React.useState({
         userName: '',
         displayName: '',
-        displayPicture: ''
+        displayPicture: '',
+        isVerified: false
     });
 
     const userObject = useSelector((state: any) => state.auth.userAuth);
@@ -31,9 +33,10 @@ export const Sidebar: React.FC<{}> = () => {
         setUserState({
             userName: userObject.userName,
             displayName: userObject.displayName,
-            displayPicture: userObject.displayPicture
+            displayPicture: userObject.displayPicture,
+            isVerified: userObject.isVerified
         })
-    }, [userObject.userName, userObject.displayName, userObject.displayPicture])
+    }, [userObject.userName, userObject.displayName, userObject.displayPicture, userObject.isVerified])
     
     const Logout = () => {
         axios.get('http://localhost:4000/auth/logout', {withCredentials: true})
@@ -107,6 +110,16 @@ export const Sidebar: React.FC<{}> = () => {
                             <div className='opacity-50 text-[0.85rem]'>                            
                                 <div>
                                     @{userState.userName}
+                                    {
+                                        userState.isVerified ? 
+                                        <VerifiedIcon 
+                                            fontSize="small" 
+                                            sx={{ color: 'red-[#1D9BF0]' }}
+                                        />
+                                        :
+                                        null
+                                    }
+                                    
                                 </div> 
                                 
                             </div>
