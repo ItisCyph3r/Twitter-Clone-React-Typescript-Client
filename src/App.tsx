@@ -6,7 +6,8 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import BasicModal from './conponents/modal/loginModal';
 import { Home } from './pages/homepage/home';
 import { Login } from './pages/loginpage/loginpage';
-import { Status } from './pages/status/status';
+// import Status from './pages/status'
+// import { Status } from './pages/status/status';
 import { authActions } from './store/auth-Slice';
 import "./App.css";
 
@@ -29,7 +30,7 @@ export const App: React.FC<{}> = () => {
                 <Routes>
                     <Route path="/" element={ <Login/> } />
                     <Route path="/home" element={ <Home/> } />
-                    <Route path="/status" element={ <Status/> } />
+                    {/* <Route path="/status" element={ <Status/> } /> */}
                 </Routes>
             </div>
         </>
