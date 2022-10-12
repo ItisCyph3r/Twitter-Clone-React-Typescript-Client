@@ -32,7 +32,7 @@ export default function Posts() {
 
 
     useEffect(() => {
-        axios.get("http://localhost:4000/api")
+        axios.get("https://zapnode-twitter-clone-backend.herokuapp.com/api")
         .then((res: AxiosResponse) => {
             if (res.data) {
                 setFeed(res.data);
