@@ -13,8 +13,8 @@ import "./App.css";
 export const App: React.FC<{}> = () => {
     const dispatch = useDispatch()
     useEffect(() => {
-        axios.get("http://localhost:4000/getuser", { withCredentials: true} )
-        .then((res: AxiosResponse) => {
+        axios.get("https://zapnode-twitter-clone-backend.herokuapp.com/getuser", { withCredentials: true} )
+        .then((res: AxiosResponse) => { 
             if (res.data) {
                 dispatch(authActions.login(res.data))
             }

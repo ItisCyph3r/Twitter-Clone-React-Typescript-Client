@@ -48,7 +48,7 @@ export default function Posts() {
                 
                     feed.map((element: any) => (
 
-                    <div >
+                    <div key={element._id}>
                         <div className='px-3 pt-5 flex gap-2'>
                             <ProfilePic 
                                 width={45} 
@@ -67,7 +67,6 @@ export default function Posts() {
                                         <div className='opacity-50 md:text-sm text-xs flex items-center'> 
                                             <div className='md:max-w-[120px] max-w-[70px] whitespace-nowrap overflow-hidden text-ellipsis ml-1'>
                                                 @{element.userName}
-                                                {console.log(userState.isVerified)}
                                                 {
                                                     userState.isVerified === true ?
                                                         <VerifiedIcon 

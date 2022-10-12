@@ -13,12 +13,12 @@ export const Login: React.FC<{}> = () => {
     const navigate = useNavigate();
 
     const googleLogin = () => {
-        window.open('http://localhost:4000/auth/google', '_self', 'width=500, height=600')
+        window.open('https://zapnode-twitter-clone-backend.herokuapp.com/auth/google', '_self', 'width=500, height=600')
         
     }
 
     const githubLogin = () => {
-        window.open('http://localhost:4000/auth/github', '_self', 'width=500, height=600')
+        window.open('https://zapnode-twitter-clone-backend.herokuapp.com/auth/github', '_self', 'width=500, height=600')
     }
 
     return (
@@ -54,6 +54,12 @@ export const Login: React.FC<{}> = () => {
                             </span>
                         </button>
 
+                        
+
+                        
+
+                        <hr className='w-full border-gray-700 mt-5' /> 
+
                         <button 
                             className={`w-full p-2 rounded-3xl font-bold text-center flex justify-center text-sm bg-white text-black mt-5` }
                             onClick={githubLogin}
@@ -66,11 +72,7 @@ export const Login: React.FC<{}> = () => {
                             </span>
                         </button>
 
-                        
-
-                        <hr className='w-full border-gray-700 mt-5' /> 
-
-                        <button 
+                        {/* <button 
                             className={`w-full p-2 rounded-3xl font-bold text-center flex justify-center text-sm bg-twitterBlue text-white mt-5` }
                             onClick={()=>{window.location.href = '/home'}}
                         >
@@ -81,7 +83,7 @@ export const Login: React.FC<{}> = () => {
                                 </>
                             </span>
                         </button>
-                        
+                         */}
 
                         <p className='text-xs mt-2 text-grey-400'>
                             By signing up, you agree to the 
