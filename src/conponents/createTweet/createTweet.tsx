@@ -6,7 +6,7 @@ import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { ProfilePic } from '../profilePic/profilePic';
-import { UUID } from '../getCurrentDate';
+import { UUID } from '../getDate/getCurrentDate';
 import './createTweet.css';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -50,7 +50,8 @@ export function Tweet() {
     const SetTweet = async () => {
         
     
-        const data = await fetch('https://zapnode-twitter-clone-backend.herokuapp.com/api', {
+        // const data = await fetch('https://zapnode-twitter-clone-backend.herokuapp.com/api', {
+            const data = await fetch('http://localhost:4000/api', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

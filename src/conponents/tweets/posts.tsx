@@ -7,7 +7,7 @@ import {BiComment} from 'react-icons/bi';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import BasicMenu from '../dropdown-menu/dropdown-menu';
-import { parseCurrentDate } from '../getCurrentDate';
+import { parseCurrentDate } from '../getDate/getCurrentDate';
 import axios, { AxiosResponse } from 'axios';
 import { IUser } from '../../types/maintypes';
 import { useSelector } from 'react-redux';
@@ -32,7 +32,8 @@ export default function Posts() {
 
 
     useEffect(() => {
-        axios.get("https://zapnode-twitter-clone-backend.herokuapp.com/api")
+        // axios.get("https://zapnode-twitter-clone-backend.herokuapp.com/api")
+        axios.get("http://localhost:4000/home/api")
         .then((res: AxiosResponse) => {
             if (res.data) {
                 setFeed(res.data);
@@ -110,7 +111,8 @@ export default function Posts() {
 
                 :
 
-                <div className='relative top-[50px] left-1/2'>
+                // <div className='relative top-[50px] left-1/2'>
+                <div className='flex justify-center mt-10'>
                     <Box sx={{ display: 'flex' }}>
                         <CircularProgress />
                     </Box>

@@ -8,6 +8,9 @@ import { ProfilePic } from '../../conponents/profilePic/profilePic';
 import { Sidebar } from '../../conponents/sidebar/sidebar';
 import { useSelector } from 'react-redux';
 import '../../styles/global.util.css';
+import { Fab } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import { Link } from 'react-router-dom';
 
 export const Home: React.FC<{}> = () => {
     const userObject = useSelector((state: any) => state.auth.userAuth);
@@ -23,7 +26,7 @@ export const Home: React.FC<{}> = () => {
     }, [userObject.username, userObject.displayName, userObject.displayPicture])
     return (
         <>
-            <div className=' w-full flex overflow-hidden bg-black m-auto h-screen lg:w-[93%]'>
+            <div className=' w-full flex overflow-hidden bg-black m-auto h-screen lg:w-[93%] relative'>
                 <div className='bg-black hidden lg:w-[20%] w-[130px] sm:block'>
                     <Sidebar/>    
                 </div>
@@ -44,6 +47,14 @@ export const Home: React.FC<{}> = () => {
                         <Tweet/>
                     </div>   
                     <Posts/>
+                    <div className='absolute bottom-[5rem] right-5 block sm:hidden'>
+                        <Link to='/compose/tweet'>
+                            <Fab color="primary" aria-label="add">
+                                <AddIcon />
+                            </Fab>
+                        </Link>
+                    </div>
+                    
                 </div>
                 <div className='bg-black overflow-y-scroll hidden sm:block w-[20%] lg:w-[30%] px-5 feed'>
                     <div className='lg:block hidden'>
@@ -52,6 +63,7 @@ export const Home: React.FC<{}> = () => {
                     </div>
                     
                 </div>
+                
             </div>
         </>
     );
