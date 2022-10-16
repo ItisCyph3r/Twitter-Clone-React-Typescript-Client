@@ -107,7 +107,7 @@ export const Home: React.FC<{}> = () => {
                         
                         { 
                             sideNav &&
-                            <div className='h-screen w-[100%] absolute top-0 flex z-[999]'>
+                            <div className='h-full w-[100%] absolute top-0 flex z-[999]'>
                                 <div className='w-[65%] bg-black h-full'>
                                     <div className='px-3'>
                                         <div className='py-4 flex justify-between font-extrabold'>
@@ -159,8 +159,8 @@ export const Home: React.FC<{}> = () => {
                                         </div>
                                     </div>    
                                 </div>
-                                <div className='h-screen bg-white w-[35%] opacity-[20%]' onClick={closeNavbar}>
-                                    Danjuma
+                                <div className='h-full bg-white w-[35%] opacity-[20%]' onClick={closeNavbar}>
+                                    
                                 </div>
                             </div>
                         }
