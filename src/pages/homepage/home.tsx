@@ -49,7 +49,7 @@ export const Home: React.FC<{}> = () => {
                     <Posts/>
                     <div className='absolute bottom-[5rem] right-5 block sm:hidden'>
                         <Link to='/compose/tweet'>
-                            <Fab color="primary" aria-label="add">
+                            <Fab color="primary" aria-label="add" style={{color: 'twitterBlue'}}>
                                 <AddIcon />
                             </Fab>
                         </Link>
