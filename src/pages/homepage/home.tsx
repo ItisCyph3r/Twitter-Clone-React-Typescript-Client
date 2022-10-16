@@ -122,7 +122,7 @@ export const Home: React.FC<{}> = () => {
                                             <ProfilePic width={48} height={48} src={userState.displayPicture}/>
                                         </div>
                                         <div className='mt-3'>
-                                            <div className='text-[1.15rem] leading-5 font-bold'>                                        
+                                            <div className='text-[1rem] leading-5 font-bold'>                                        
                                                 {userState.displayName}                                             
                                             </div>
                                             <div className='opacity-50 text-sm mt-1'>                            
@@ -147,7 +147,7 @@ export const Home: React.FC<{}> = () => {
                                                 </div>
                                             </div>
                                         </div>  
-                                        <div className='text-[1.25rem] mt-2'>                      
+                                        <div className='text-[1.05rem] mt-2'>                      
                                             <MobileSidelink icon={<HomeIcon/>} text='Home' className='cursor-pointer' /> 
                                             <MobileSidelink icon={<TagIcon/>} text='Explore' className='cursor-pointer' /> 
                                             <MobileSidelink icon={<NotificationsNoneIcon />} text='Notifications' className='cursor-pointer' /> 
