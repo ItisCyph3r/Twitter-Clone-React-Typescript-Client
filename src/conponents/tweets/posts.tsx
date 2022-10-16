@@ -33,7 +33,7 @@ export default function Posts() {
 
     useEffect(() => {
         axios.get("https://zapnode-twitter-clone-backend.herokuapp.com/api")
-        // axios.get("http://localhost:4000/home/api")
+        // axios.get("http://localhost:4000/api")
         .then((res: AxiosResponse) => {
             if (res.data) {
                 setFeed(res.data);
@@ -60,13 +60,13 @@ export default function Posts() {
                             <div className='ml-2 w-full'>
                                 <div className='flex justify-between'>
                                     <div className='cursor-pointer flex items-center '>
-                                        <div className='gap-8 text-sm font-bold md:max-w-[300px] max-w-[100px] whitespace-nowrap overflow-hidden text-ellipsis'>                                           
+                                        <div className='gap-8 text-sm font-bold md:max-w-[300px] max-w-[180px] whitespace-nowrap overflow-hidden text-ellipsis'>                                           
                                             {element.displayName}
 
                                         
                                         </div>
                                         <div className='opacity-50 md:text-sm text-xs flex items-center'> 
-                                            <div className='md:max-w-[120px] max-w-[70px] whitespace-nowrap overflow-hidden text-ellipsis ml-1'>
+                                            <div className='md:max-w-[120px] max-w-[80px] whitespace-nowrap overflow-hidden text-ellipsis ml-1'>
                                                 @{element.userName}
                                                 {
                                                     userState.isVerified === true ?
@@ -79,8 +79,9 @@ export default function Posts() {
                                                     null
                                                 }
                                             </div>
+                                            .
                                             <div className='ml-1 flex items-center max-w-[100px]'>
-                                                . {parseCurrentDate(element.date)}
+                                                {parseCurrentDate(element.date)}
                                             </div>
                                             
                                         </div> 

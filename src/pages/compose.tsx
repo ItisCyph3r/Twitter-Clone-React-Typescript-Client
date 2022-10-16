@@ -88,7 +88,7 @@ export const Compose: React.FC<{}> = () => {
             </div>
             <div className='flex'>
                 <div>
-                    <ProfilePic width={44} height={44}/>
+                    <ProfilePic width={44} height={44} src={userState.displayPicture}/>
                 </div>
                 <div className='ml-4 w-full'>
                     <div>
