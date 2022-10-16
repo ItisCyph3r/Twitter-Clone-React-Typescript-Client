@@ -108,7 +108,7 @@ export const Home: React.FC<{}> = () => {
                         { 
                             sideNav &&
                             <div className='h-screen w-[100%] absolute top-0 flex z-[999]'>
-                                <div className='w-[65%] bg-black h-screen'>
+                                <div className='w-[65%] bg-black h-full'>
                                     <div className='px-3'>
                                         <div className='py-4 flex justify-between font-extrabold'>
                                             <div>
