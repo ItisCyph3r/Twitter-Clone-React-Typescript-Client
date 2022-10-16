@@ -44,8 +44,8 @@ export const Compose: React.FC<{}> = () => {
     const SetTweet = async () => {
         
     
-        // const data = await fetch('https://zapnode-twitter-clone-backend.herokuapp.com/api', {
-            const data = await fetch('http://localhost:4000/api', {
+        const data = await fetch('https://zapnode-twitter-clone-backend.herokuapp.com/api', {
+            // const data = await fetch('http://localhost:4000/api', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
