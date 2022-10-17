@@ -32,10 +32,11 @@ export default function Posts() {
 
 
     useEffect(() => {
-        axios.get("https://zapnode-twitter-clone-backend.herokuapp.com/api")
-        // axios.get("http://localhost:4000/api")
+        // axios.get("https://zapnode-twitter-clone-backend.herokuapp.com/api")
+        axios.get("http://localhost:4000/api")
         .then((res: AxiosResponse) => {
             if (res.data) {
+                console.log(res.data)
                 setFeed(res.data);
             } 
         })
@@ -43,8 +44,8 @@ export default function Posts() {
 
     return (
         <>
+            {console.log(feed)}
             {
-                
                 feed.length !== 0 ? 
                 
                     feed.map((element: any) => (
@@ -92,11 +93,9 @@ export default function Posts() {
                                 </div>
                                 
                                 
-                                    <div className='relative bottom-[0.1rem] text-[0.9rem]'>
-                                        {element.tweet}
-                                    </div>
-                                
-                                
+                                <div className='relative bottom-[0.1rem] text-[0.9rem]'>
+                                    {element.tweet}
+                                </div>
                                 
                                 <div className='flex justify-between items-center my-3'>
                                     <BiComment />
@@ -112,7 +111,6 @@ export default function Posts() {
 
                 :
 
-                // <div className='relative top-[50px] left-1/2'>
                 <div className='flex justify-center mt-10'>
                     <Box sx={{ display: 'flex' }}>
                         <CircularProgress />

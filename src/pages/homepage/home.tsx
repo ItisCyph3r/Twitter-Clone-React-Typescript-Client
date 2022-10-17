@@ -53,8 +53,8 @@ export const Home: React.FC<{}> = () => {
     let navigate = useNavigate(); 
 
     const Logout = () => {
-        // axios.get('http://localhost:4000/auth/logout', {withCredentials: true})
-        axios.get('https://zapnode-twitter-clone-backend.herokuapp.com/auth/logout', {withCredentials: true})
+        axios.get('http://localhost:4000/auth/logout', {withCredentials: true})
+        // axios.get('https://zapnode-twitter-clone-backend.herokuapp.com/auth/logout', {withCredentials: true})
         
             .then((res: AxiosResponse) => {
                 console.log(res.data)
@@ -97,73 +97,10 @@ export const Home: React.FC<{}> = () => {
                             <Tweet/>
                         </div>   
                         <Posts/>
-                        <div className='absolute bottom-[5rem] right-5 block sm:hidden z-5'>
-                            <Link to='/compose/tweet'>
-                                <Fab color="primary" aria-label="add" style={{color: 'twitterBlue'}}>
-                                    <AddIcon />
-                                </Fab>
-                            </Link>
-                        </div>
                         
-                        { 
-                            sideNav &&
-                            <div className='h-full w-[100%] absolute top-0 flex z-[999]'>
-                                <div className='w-[65%] bg-black h-full'>
-                                    <div className='px-3'>
-                                        <div className='py-4 flex justify-between font-extrabold'>
-                                            <div>
-                                                Account Info
-                                            </div>
-                                            <div onClick={closeNavbar}>
-                                                <ExitToAppRounded />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <ProfilePic width={48} height={48} src={userState.displayPicture}/>
-                                        </div>
-                                        <div className='mt-3'>
-                                            <div className='text-[1rem] leading-5 font-bold'>                                        
-                                                {userState.displayName}                                             
-                                            </div>
-                                            <div className='opacity-50 text-sm mt-1'>                            
-                                                {userState.userName}
-                                            </div>
-                                        </div>
-                                        <div className='mt-3 flex text-sm'>
-                                            <div className='flex items-center'>
-                                                <div className='leading-5 font-bold'>
-                                                    1M
-                                                </div>
-                                                <div className='opacity-50 ml-1'>                            
-                                                    Following                                        
-                                                </div>
-                                            </div>
-                                            <div className='flex ml-3 items-center'>
-                                                <div className='leading-5 font-bold'>
-                                                    1M
-                                                </div>
-                                                <div className='opacity-50 ml-1'>                            
-                                                    Followers                                       
-                                                </div>
-                                            </div>
-                                        </div>  
-                                        <div className='text-[1.05rem] mt-2'>                      
-                                            <MobileSidelink icon={<HomeIcon/>} text='Home' className='cursor-pointer' /> 
-                                            <MobileSidelink icon={<TagIcon/>} text='Explore' className='cursor-pointer' /> 
-                                            <MobileSidelink icon={<NotificationsNoneIcon />} text='Notifications' className='cursor-pointer' /> 
-                                            <MobileSidelink icon={<MailOutlineIcon/>} text='Messages' className='cursor-pointer' /> 
-                                            <MobileSidelink icon={<BookmarkBorderIcon/>} text='Bookmarks' className='cursor-pointer' /> 
-                                            <MobileSidelink icon={<ListAltIcon/>} text='Lists' className='cursor-pointer' /> 
-                                            <MobileSidelink icon={<PermIdentityIcon/>} text='Profile' className='cursor-pointer' /> 
-                                            <MobileSidelink icon={<MoreHorizIcon/>} text='Logout' className='cursor-pointer' onClick={Logout}/> 
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div className='h-full bg-white w-[35%] opacity-[20%]' onClick={closeNavbar}>
-                                    
-                                </div>
-                            </div>
-                        }
+                        
+                        
+                        
                     </div>
                     <div className='bg-black overflow-y-scroll hidden sm:block w-[20%] lg:w-[30%] px-5 feed'>
                         <div className='lg:block hidden'>
@@ -172,10 +109,74 @@ export const Home: React.FC<{}> = () => {
                         </div>
                         
                     </div>
-                </div>
-                :
-                // navigate('/')
-                console.log('Home')
+                    <div className='absolute bottom-[5rem] right-5 block sm:hidden z-5'>
+                            <Link to='/compose/tweet'>
+                                <Fab color="primary" aria-label="add" style={{color: 'twitterBlue'}}>
+                                    <AddIcon />
+                                </Fab>
+                            </Link>
+                    </div>
+                    { 
+                        sideNav &&
+                        <div className='h-full w-[100%] absolute top-0 flex z-[999] overflow-hidden'>
+                            <div className='w-[65%] bg-black h-full'>
+                                <div className='px-3'>
+                                    <div className='py-4 flex justify-between font-extrabold'>
+                                        <div>
+                                            Account Info
+                                        </div>
+                                        <div onClick={closeNavbar}>
+                                            <ExitToAppRounded />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <ProfilePic width={48} height={48} src={userState.displayPicture}/>
+                                    </div>
+                                    <div className='mt-3'>
+                                        <div className='text-[1rem] leading-5 font-bold'>                                        
+                                            {userState.displayName}                                             
+                                        </div>
+                                        <div className='opacity-50 text-sm mt-1'>                            
+                                            {userState.userName}
+                                        </div>
+                                    </div>
+                                    <div className='mt-3 flex text-sm'>
+                                        <div className='flex items-center'>
+                                            <div className='leading-5 font-bold'>
+                                                1M
+                                            </div>
+                                            <div className='opacity-50 ml-1'>                            
+                                                Following                                        
+                                            </div>
+                                        </div>
+                                        <div className='flex ml-3 items-center'>
+                                            <div className='leading-5 font-bold'>
+                                                1M
+                                            </div>
+                                            <div className='opacity-50 ml-1'>                            
+                                                Followers                                       
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    <div className='text-[1.05rem] mt-2'>                      
+                                        <MobileSidelink icon={<HomeIcon/>} text='Home' className='cursor-pointer' /> 
+                                        <MobileSidelink icon={<TagIcon/>} text='Explore' className='cursor-pointer' /> 
+                                        <MobileSidelink icon={<NotificationsNoneIcon />} text='Notifications' className='cursor-pointer' /> 
+                                        <MobileSidelink icon={<MailOutlineIcon/>} text='Messages' className='cursor-pointer' /> 
+                                        <MobileSidelink icon={<BookmarkBorderIcon/>} text='Bookmarks' className='cursor-pointer' /> 
+                                        <MobileSidelink icon={<ListAltIcon/>} text='Lists' className='cursor-pointer' /> 
+                                        <MobileSidelink icon={<PermIdentityIcon/>} text='Profile' className='cursor-pointer' /> 
+                                        <MobileSidelink icon={<MoreHorizIcon/>} text='Logout' className='cursor-pointer' onClick={Logout}/> 
+                                    </div>
+                                </div>    
+                            </div>
+                            <div className='h-full bg-white w-[35%] opacity-[20%]' onClick={closeNavbar} />                                    
+                        </div>
+                    }
+            </div>
+            :
+            // navigate('/')
+            console.log('Home')
                 
             }
             
