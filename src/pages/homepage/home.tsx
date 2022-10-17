@@ -36,10 +36,10 @@ export const Home: React.FC<{}> = () => {
     const [sideNav, setSideNav] = useState<boolean>(false)
 
     const displayNavbar = async () => {
-        await setSideNav(true)
+        setSideNav(true)
     }
     const closeNavbar = async () => {
-        await setSideNav(false)
+        setSideNav(false)
     }
     useEffect(()=>{
         setUserState({
@@ -53,8 +53,8 @@ export const Home: React.FC<{}> = () => {
     let navigate = useNavigate(); 
 
     const Logout = () => {
-        axios.get('http://localhost:4000/auth/logout', {withCredentials: true})
-        // axios.get('https://zapnode-twitter-clone-backend.herokuapp.com/auth/logout', {withCredentials: true})
+        // axios.get('http://localhost:4000/auth/logout', {withCredentials: true})
+        axios.get('https://zapnode-twitter-clone-backend.herokuapp.com/auth/logout', {withCredentials: true})
         
             .then((res: AxiosResponse) => {
                 console.log(res.data)
