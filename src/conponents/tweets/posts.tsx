@@ -36,7 +36,7 @@ export default function Posts() {
         // axios.get("http://localhost:4000/api")
         .then((res: AxiosResponse) => {
             if (res.data) {
-                console.log(res.data)
+                // console.log(res.data)
                 setFeed(res.data);
             } 
         })
@@ -44,7 +44,7 @@ export default function Posts() {
 
     return (
         <>
-            {console.log(feed)}
+            {/* {console.log(feed)} */}
             {
                 feed.length !== 0 ? 
                 
