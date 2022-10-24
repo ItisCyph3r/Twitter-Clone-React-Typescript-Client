@@ -10,6 +10,22 @@ import { BsLightningCharge } from 'react-icons/bs';
 import { BsNewspaper } from 'react-icons/bs';
 import { TbPresentationAnalytics } from 'react-icons/tb';
 
+import { BiRocket } from 'react-icons/bi';
+import { MdScreenShare } from 'react-icons/md';
+import { AiFillSetting } from 'react-icons/ai';
+import { BiHelpCircle } from 'react-icons/bi';
+import { MdDataSaverOn } from 'react-icons/md';
+import { BsDisplay } from 'react-icons/bs';
+import { BsKeyboard } from 'react-icons/bs';
+import { FiLogOut } from 'react-icons/fi';
+
+
+
+
+
+
+
+
 interface AccordionProps {
     username: string
 }
@@ -82,7 +98,7 @@ export default function Simple_accordion(props: AccordionProps) {
                     <div className='text-white'>
                         <div className={`flex py-0 font-bold cursor-pointer items-center`}>
                             <div className='flex items-center'>
-                                <BsLightningCharge />
+                                <BiRocket />
                             </div>
                             <Typography>
                                 <div className='ml-3'>
@@ -91,7 +107,7 @@ export default function Simple_accordion(props: AccordionProps) {
                             </Typography>
                         </div>
                         <div className={`flex py-0 font-bold cursor-pointer items-center mt-3`}>
-                            <BsNewspaper />
+                            <MdScreenShare />
 
                             <div className='ml-3'>
                                 Twitter Ads
@@ -119,7 +135,7 @@ export default function Simple_accordion(props: AccordionProps) {
                     <div className='text-white'>
                         <div className={`flex py-0 font-bold cursor-pointer items-center`}>
                             <div className='flex items-center'>
-                                <BsLightningCharge />
+                                <AiFillSetting />
                             </div>
                             <Typography>
                                 <div className='ml-3'>
@@ -128,35 +144,35 @@ export default function Simple_accordion(props: AccordionProps) {
                             </Typography>
                         </div>
                         <div className={`flex py-0 font-bold cursor-pointer items-center mt-3`}>
-                            <BsNewspaper />
+                            <BiHelpCircle />
 
                             <div className='ml-3'>
                                 Help Center
                             </div>
                         </div>
                         <div className={`flex py-0 font-bold cursor-pointer items-center mt-3`}>
-                            <TbPresentationAnalytics />
+                            <MdDataSaverOn />
 
                             <div className='ml-3'>
                                 Data Saver
                             </div>
                         </div>
                         <div className={`flex py-0 font-bold cursor-pointer items-center mt-3`}>
-                            <TbPresentationAnalytics />
+                            <BsDisplay />
 
                             <div className='ml-3'>
                                 Display
                             </div>
                         </div>
                         <div className={`flex py-0 font-bold cursor-pointer items-center mt-3`}>
-                            <TbPresentationAnalytics />
+                            <BsKeyboard />
 
                             <div className='ml-3'>
                                 Keyboard Shortcuts
                             </div>
                         </div>
                         <div className={`flex py-0 font-bold cursor-pointer items-center mt-3`}>
-                            <TbPresentationAnalytics />
+                            <FiLogOut />
 
                             <div className='ml-3'>
                                 Log out @ {props.username}
