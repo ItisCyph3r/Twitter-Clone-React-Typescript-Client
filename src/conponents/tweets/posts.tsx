@@ -2,9 +2,9 @@ import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ProfilePic } from '../profilePic/profilePic';
 import VerifiedIcon from '@mui/icons-material/Verified';
-import {FaRetweet, FaComment, FaRegHeart} from 'react-icons/fa';
-import {FiShare} from 'react-icons/fi';
-import {BiComment} from 'react-icons/bi';
+import { FaRetweet, FaComment, FaRegHeart } from 'react-icons/fa';
+import { FiShare } from 'react-icons/fi';
+import { BiComment } from 'react-icons/bi';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import BasicMenu from '../dropdown-menu/dropdown-menu';
@@ -22,10 +22,10 @@ export default function Posts() {
     const [userState, setUserState] = React.useState({
         isVerified: false
     });
-    
+
     const userObject = useSelector((state: any) => state.auth.userAuth);
 
-    useEffect(()=>{
+    useEffect(() => {
         setUserState({
             isVerified: userObject.isVerified
         })
@@ -34,92 +34,92 @@ export default function Posts() {
 
     useEffect(() => {
         axios.get("https://zapnode-twitter-clone-backend.herokuapp.com/api")
-        // axios.get("http://localhost:4000/api")
-        .then((res: AxiosResponse) => {
-            if (res.data) {
-                // console.log(res.data)
-                setFeed(res.data);
-            } 
-        })
+            // axios.get("http://localhost:4000/api")
+            .then((res: AxiosResponse) => {
+                if (res.data) {
+                    // console.log(res.data)
+                    setFeed(res.data);
+                }
+            })
     }, [feed])
 
     return (
         <>
             {/* {console.log(feed)} */}
             {
-                feed.length !== 0 ? 
-                
+                feed.length !== 0 ?
+
                     feed.map((element: any) => (
 
-                    <div key={element._id}>
-                        <Link to={`/${element.userName}/status/${element.uuid}`}>
-                        <div className='px-3 pt-5 flex gap-2'>
-                            <ProfilePic 
-                                width={45} 
-                                height= {45} 
-                                src={element.displayPicture}
-                            />
-                                
-                            <div className='ml-2 w-full'>
-                                <div className='flex justify-between'>
-                                    <div className='cursor-pointer flex items-center '>
-                                        <div className='gap-8 text-sm font-bold md:max-w-[300px] max-w-[180px] whitespace-nowrap overflow-hidden text-ellipsis'>                                           
-                                            {element.displayName}
+                        <div key={element._id}>
+                            <Link to={`/${element.userName}/status/${element.uuid}`}>
+                                <div className='px-3 pt-5 flex gap-2 hover:bg-[#181818]'>
+                                    <ProfilePic
+                                        width={45}
+                                        height={45}
+                                        src={element.displayPicture}
+                                    />
 
-                                        
+                                    <div className='ml-2 w-full'>
+                                        <div className='flex justify-between'>
+                                            <div className='cursor-pointer flex items-center '>
+                                                <div className='gap-8 text-sm font-bold md:max-w-[300px] max-w-[180px] whitespace-nowrap overflow-hidden text-ellipsis'>
+                                                    {element.displayName}
+
+
+                                                </div>
+                                                <div className='opacity-50 md:text-sm text-xs flex items-center'>
+                                                    <div className='md:max-w-[120px] max-w-[80px] whitespace-nowrap overflow-hidden text-ellipsis ml-1'>
+                                                        @{element.userName}
+                                                        {
+                                                            userState.isVerified === true ?
+                                                                <VerifiedIcon
+                                                                    fontSize="small"
+                                                                    sx={{ color: 'red-[#1D9BF0]' }}
+                                                                />
+
+                                                                :
+                                                                null
+                                                        }
+                                                    </div>
+                                                    .
+                                                    <div className='ml-1 flex items-center max-w-[100px]'>
+                                                        {parseCurrentDate(element.date)}
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <BasicMenu uuid={element._id} />
+                                            </div>
                                         </div>
-                                        <div className='opacity-50 md:text-sm text-xs flex items-center'> 
-                                            <div className='md:max-w-[120px] max-w-[80px] whitespace-nowrap overflow-hidden text-ellipsis ml-1'>
-                                                @{element.userName}
-                                                {
-                                                    userState.isVerified === true ?
-                                                        <VerifiedIcon 
-                                                        fontSize="small" 
-                                                        sx={{ color: 'red-[#1D9BF0]' }}
-                                                        />
-                                            
-                                                    :
-                                                    null
-                                                }
-                                            </div>
-                                            .
-                                            <div className='ml-1 flex items-center max-w-[100px]'>
-                                                {parseCurrentDate(element.date)}
-                                            </div>
-                                            
-                                        </div> 
-                                    </div>
-                                    <div>
-                                        <BasicMenu uuid ={element._id}/>
+
+
+                                        <div className='relative bottom-[0.1rem] text-[0.9rem]'>
+                                            {element.tweet}
+                                        </div>
+
+                                        <div className='flex justify-between items-center my-3'>
+                                            <BiComment />
+                                            <FaRetweet />
+                                            <FaRegHeart />
+                                            <FiShare />
+                                        </div>
                                     </div>
                                 </div>
-                                
-                                
-                                <div className='relative bottom-[0.1rem] text-[0.9rem]'>
-                                    {element.tweet}
-                                </div>
-                                
-                                <div className='flex justify-between items-center my-3'>
-                                    <BiComment />
-                                    <FaRetweet />
-                                    <FaRegHeart />
-                                    <FiShare />
-                                </div>
-                            </div>
+                            </Link>
+                            <hr className='w-full border-gray-700' />
                         </div>
-                        </Link>
-                        <hr className='w-full border-gray-700' /> 
+                    )).reverse()
+
+                    :
+
+                    <div className='flex justify-center mt-10'>
+                        <Box sx={{ display: 'flex' }}>
+                            <CircularProgress />
+                        </Box>
                     </div>
-                    )).reverse() 
-
-                :
-
-                <div className='flex justify-center mt-10'>
-                    <Box sx={{ display: 'flex' }}>
-                        <CircularProgress />
-                    </Box>
-                </div>
-            }  
-        </>       
+            }
+        </>
     )
 }
