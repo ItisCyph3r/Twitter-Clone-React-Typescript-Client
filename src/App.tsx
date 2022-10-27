@@ -11,6 +11,7 @@ import { Login } from './pages/loginpage/loginpage';
 import { authActions } from './store/auth-Slice';
 import "./App.css";
 import { Compose } from './pages/compose';
+import { Status } from './pages/status/status';
 
 export const App: React.FC<{}> = () => {
     const dispatch = useDispatch()
@@ -34,7 +35,7 @@ export const App: React.FC<{}> = () => {
                     {/* <PrivateRoute path="/onlyAuthorizedAllowedHere/" component={MyComponent} /> */}
                     <Route path="/home" element={<Home />} />
                     <Route path="/compose/tweet" element={<Compose />} />
-                    {/* <Route path="/status" element={ <Status/> } /> */}
+                    <Route path="/:userName/status/:uuid" element={ <Status/> } />                   
                 </Routes>
             </div>
         </>

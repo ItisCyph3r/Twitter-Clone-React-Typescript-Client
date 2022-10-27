@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ProfilePic } from '../profilePic/profilePic';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import {FaRetweet, FaComment, FaRegHeart} from 'react-icons/fa';
@@ -51,6 +52,7 @@ export default function Posts() {
                     feed.map((element: any) => (
 
                     <div key={element._id}>
+                        <Link to={`/${element.userName}/status/${element.uuid}`}>
                         <div className='px-3 pt-5 flex gap-2'>
                             <ProfilePic 
                                 width={45} 
@@ -105,6 +107,7 @@ export default function Posts() {
                                 </div>
                             </div>
                         </div>
+                        </Link>
                         <hr className='w-full border-gray-700' /> 
                     </div>
                     )).reverse() 
