@@ -33,7 +33,7 @@ export default function Posts() {
 
 
     useEffect(() => {
-        axios.get("https://zapnode-twitter-clone-backend.herokuapp.com/api")
+        axios.get("https://twitter-clone-qlhw.onrender.com/api")
             // axios.get("http://localhost:4000/api")
             .then((res: AxiosResponse) => {
                 if (res.data) {

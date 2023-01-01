@@ -13,13 +13,13 @@ export const Login: React.FC<{}> = () => {
     const navigate = useNavigate();
 
     const googleLogin = () => {
-        window.open('https://zapnode-twitter-clone-backend.herokuapp.com/auth/google', '_self', 'width=500, height=600')
+        window.open('https://twitter-clone-qlhw.onrender.com/auth/google', '_self', 'width=500, height=600')
         // window.open('http://localhost:4000/auth/google', '_self', 'width=500, height=600')
 
     }
 
     const githubLogin = () => {
-        window.open('https://zapnode-twitter-clone-backend.herokuapp.com/auth/github', '_self', 'width=500, height=600')
+        window.open('https://twitter-clone-qlhw.onrender.com/auth/github', '_self', 'width=500, height=600')
         // window.open('http://localhost:4000/auth/github', '_self', 'width=500, height=600')
     }
 

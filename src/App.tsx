@@ -16,7 +16,7 @@ import { Status } from './pages/status/status';
 export const App: React.FC<{}> = () => {
     const dispatch = useDispatch()
     useEffect(() => {
-        axios.get("https://zapnode-twitter-clone-backend.herokuapp.com/getuser", { withCredentials: true })
+        axios.get("https://twitter-clone-qlhw.onrender.com/getuser", { withCredentials: true })
             // axios.get("http://localhost:4000/getuser", { withCredentials: true} )
             .then((res: AxiosResponse) => {
                 if (res.data) {
@@ -35,7 +35,7 @@ export const App: React.FC<{}> = () => {
                     {/* <PrivateRoute path="/onlyAuthorizedAllowedHere/" component={MyComponent} /> */}
                     <Route path="/home" element={<Home />} />
                     <Route path="/compose/tweet" element={<Compose />} />
-                    <Route path="/:userName/status/:uuid" element={ <Status/> } />                   
+                    <Route path="/:userName/status/:uuid" element={<Status />} />
                 </Routes>
             </div>
         </>
