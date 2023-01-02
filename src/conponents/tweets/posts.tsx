@@ -33,7 +33,7 @@ export default function Posts() {
 
 
     useEffect(() => {
-        axios.get("https://zapnodetv.onrender.com//api")
+        axios.get("https://zapnodetv.onrender.com/api")
             // axios.get("http://localhost:4000/api")
             .then((res: AxiosResponse) => {
                 if (res.data) {

@@ -44,7 +44,7 @@ export const Compose: React.FC<{}> = () => {
     const SetTweet = async () => {
 
 
-        const data = await fetch('https://zapnodetv.onrender.com//api', {
+        const data = await fetch('https://zapnodetv.onrender.com/api', {
             // const data = await fetch('http://localhost:4000/api', {
             method: 'POST',
             headers: {
