@@ -41,7 +41,7 @@ export const Sidebar: React.FC<{}> = () => {
     const navigate = useNavigate()
     const Logout = () => {
         // axios.get('http://localhost:4000/auth/logout', {withCredentials: true})
-        axios.get('https://twitter-clone-qlhw.onrender.com/auth/logout', {withCredentials: true})
+        axios.get('https://zapnodetv.onrender.com/auth/logout', {withCredentials: true})
             .then((res: AxiosResponse) => {
                 console.log(res.data)
                 if(res.data === "done"){

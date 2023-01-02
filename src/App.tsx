@@ -16,7 +16,7 @@ import { Status } from './pages/status/status';
 export const App: React.FC<{}> = () => {
     const dispatch = useDispatch()
     useEffect(() => {
-        axios.get("https://twitter-clone-qlhw.onrender.com/getuser", { withCredentials: true })
+        axios.get("https://zapnodetv.onrender.com/getuser", { withCredentials: true })
             // axios.get("http://localhost:4000/getuser", { withCredentials: true} )
             .then((res: AxiosResponse) => {
                 if (res.data) {
